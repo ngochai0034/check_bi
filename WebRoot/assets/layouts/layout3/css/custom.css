@@ -1,0 +1,742 @@
+/* here you can put your own css to customize and override the theme */
+/* ---------------------------------------------------------------------- */
+/*  Utilities
+/* ---------------------------------------------------------------------- */
+.no-padding {
+  padding: 0 !important;
+}
+
+.no-margin {
+  margin: 0 !important;
+}
+
+.inline {
+  display: inline;
+}
+
+.no-radius {
+  -moz-border-radius: 0 !important;
+  -webkit-border-radius: 0;
+  border-radius: 0 !important;
+}
+
+.no-border {
+  border: none !important;
+}
+
+.border-right {
+  border-right-style: solid;
+  border-right-width: 1px;
+  border-color: rgba(0, 0, 0, 0.07);
+}
+
+.border-left {
+  border-left-style: solid;
+  border-left-width: 1px;
+  border-color: rgba(0, 0, 0, 0.07);
+}
+
+.border-top {
+  border-top-style: solid;
+  border-top-width: 1px;
+  border-color: rgba(0, 0, 0, 0.07);
+}
+
+.border-bottom {
+  border-bottom-style: solid;
+  border-bottom-width: 1px;
+  border-color: rgba(0, 0, 0, 0.07);
+}
+
+.border-light {
+  border-color: rgba(255, 255, 255, 0.2) !important;
+}
+
+.border-around {
+  border: 1px solid #efefef;
+}
+
+.panel-white .border-light, .partition-white .border-light {
+  border-color: rgba(0, 0, 0, 0.07) !important;
+}
+
+.border-dark {
+  border-color: rgba(0, 0, 0, 0.2);
+}
+
+.panel-white .border-dark, .partition-white .border-dark {
+  border-color: rgba(0, 0, 0, 0.3) !important;
+}
+
+.block {
+  display: block !important;
+}
+
+.inline-block {
+  display: inline-block !important;
+}
+
+.no-display {
+  display: none !important;
+}
+
+.display-table {
+  display: table !important;
+}
+
+.display-table-cell {
+  display: table-cell !important;
+}
+
+.example {
+  margin: 15px 0;
+  padding: 14px 19px;
+}
+
+.space5 {
+  display: block;
+  margin-bottom: 5px !important;
+  clear: both;
+}
+
+.space7 {
+  margin-bottom: 7px !important;
+  clear: both;
+}
+
+.space10 {
+  margin-bottom: 10px !important;
+  clear: both;
+}
+
+.space12 {
+  margin-bottom: 12px !important;
+  clear: both;
+}
+
+.space15 {
+  margin-bottom: 15px !important;
+  clear: both;
+}
+
+.space20 {
+  margin-bottom: 20px !important;
+  clear: both;
+}
+.padding-2 {
+  padding: 2px !important;
+}
+.padding-5 {
+  padding: 5px !important;
+}
+
+.padding-10 {
+  padding: 10px !important;
+}
+
+.padding-15 {
+  padding: 15px !important;
+}
+
+.padding-20 {
+  padding: 20px !important;
+}
+
+.padding-25 {
+  padding: 25px !important;
+}
+
+.padding-30 {
+  padding: 30px !important;
+}
+
+.padding-35 {
+  padding: 35px !important;
+}
+
+.padding-40 {
+  padding: 40px !important;
+}
+
+.padding-horizontal-5 {
+  padding: 0 5px !important;
+}
+
+.padding-horizontal-10 {
+  padding: 0 10px !important;
+}
+
+.padding-horizontal-15 {
+  padding: 0 15px !important;
+}
+
+.padding-horizontal-20 {
+  padding: 0 20px !important;
+}
+
+.padding-vertical-10 {
+  padding: 10px 0 !important;
+}
+
+.padding-vertical-15 {
+  padding: 15px 0 !important;
+}
+
+.padding-vertical-20 {
+  padding: 20px 0 !important;
+}
+
+.padding-bottom-0 {
+  padding-bottom: 0px !important;
+}
+
+.padding-bottom-5 {
+  padding-bottom: 5px !important;
+}
+
+.padding-bottom-10 {
+  padding-bottom: 10px !important;
+}
+
+.padding-bottom-15 {
+  padding-bottom: 15px !important;
+}
+
+.padding-bottom-20 {
+  padding-bottom: 20px !important;
+}
+
+.padding-bottom-25 {
+  padding-bottom: 25px !important;
+}
+
+.padding-bottom-30 {
+  padding-bottom: 30px !important;
+}
+
+.padding-bottom-35 {
+  padding-bottom: 35px !important;
+}
+
+.padding-bottom-40 {
+  padding-bottom: 40px !important;
+}
+
+.padding-bottom-45 {
+  padding-bottom: 45px !important;
+}
+
+.padding-bottom-50 {
+  padding-bottom: 50px !important;
+}
+
+.padding-top-0 {
+  padding-top: 0px !important;
+}
+
+.padding-top-5 {
+  padding-top: 5px !important;
+}
+
+.padding-top-10 {
+  padding-top: 10px !important;
+}
+
+.padding-top-15 {
+  padding-top: 15px !important;
+}
+
+.padding-top-20 {
+  padding-top: 20px !important;
+}
+
+.padding-top-25 {
+  padding-top: 25px !important;
+}
+
+.padding-top-30 {
+  padding-top: 30px !important;
+}
+
+.padding-top-35 {
+  padding-top: 35px !important;
+}
+
+.padding-top-40 {
+  padding-top: 40px !important;
+}
+
+.padding-top-45 {
+  padding-top: 45px !important;
+}
+
+.padding-top-50 {
+  padding-top: 50px !important;
+}
+
+.padding-top-60 {
+  padding-top: 60px !important;
+}
+
+.padding-left-0 {
+  padding-left: 0px !important;
+}
+
+.padding-left-2 {
+  padding-left: 2px !important;
+}
+
+.padding-left-5 {
+  padding-left: 5px !important;
+}
+
+.padding-left-10 {
+  padding-left: 10px !important;
+}
+
+.padding-left-15 {
+  padding-left: 15px !important;
+}
+
+.padding-left-20 {
+  padding-left: 20px !important;
+}
+
+.padding-left-25 {
+  padding-left: 25px !important;
+}
+
+.padding-left-30 {
+  padding-left: 30px !important;
+}
+
+.padding-left-35 {
+  padding-left: 35px !important;
+}
+
+.padding-left-40 {
+  padding-left: 40px !important;
+}
+
+.padding-left-45 {
+  padding-left: 45px !important;
+}
+
+.padding-left-50 {
+  padding-left: 50px !important;
+}
+
+.padding-right-0 {
+  padding-right: 0px !important;
+}
+
+.padding-right-5 {
+  padding-right: 5px !important;
+}
+
+.padding-right-10 {
+  padding-right: 10px !important;
+}
+
+.padding-right-15 {
+  padding-right: 15px !important;
+}
+
+.padding-right-20 {
+  padding-right: 20px !important;
+}
+
+.padding-right-25 {
+  padding-right: 25px !important;
+}
+
+.padding-right-30 {
+  padding-right: 30px !important;
+}
+
+.padding-right-35 {
+  padding-right: 35px !important;
+}
+
+.padding-right-40 {
+  padding-right: 40px !important;
+}
+
+.padding-right-45 {
+  padding-right: 45px !important;
+}
+
+.padding-right-50 {
+  padding-right: 50px !important;
+}
+
+.margin-bottom-0 {
+  margin-bottom: 0px !important;
+}
+
+.margin-bottom-5 {
+  margin-bottom: 5px !important;
+}
+
+.margin-bottom-10 {
+  margin-bottom: 10px !important;
+}
+
+.margin-bottom-15 {
+  margin-bottom: 15px !important;
+}
+
+.margin-bottom-20 {
+  margin-bottom: 20px !important;
+}
+
+.margin-bottom-25 {
+  margin-bottom: 25px !important;
+}
+
+.margin-bottom-30 {
+  margin-bottom: 30px !important;
+}
+
+.margin-top-0 {
+  margin-top: 0px !important;
+}
+
+.margin-top-5 {
+  margin-top: 5px !important;
+}
+
+.margin-top-10 {
+  margin-top: 10px !important;
+}
+
+.margin-top-15 {
+  margin-top: 15px !important;
+}
+
+.margin-top-20 {
+  margin-top: 20px !important;
+}
+
+.margin-top-25 {
+  margin-top: 25px !important;
+}
+
+.margin-top-30 {
+  margin-top: 30px !important;
+}
+
+.margin-right-0 {
+  margin-right: 0px !important;
+}
+
+.margin-right-5 {
+  margin-right: 5px !important;
+}
+
+.margin-right-10 {
+  margin-right: 10px !important;
+}
+
+.margin-right-15 {
+  margin-right: 15px !important;
+}
+
+.margin-right-20 {
+  margin-right: 20px !important;
+}
+
+.margin-right-25 {
+  margin-right: 25px !important;
+}
+
+.margin-right-30 {
+  margin-right: 30px !important;
+}
+
+.margin-left-0 {
+  margin-left: 0px !important;
+}
+
+.margin-left-5 {
+  margin-left: 5px !important;
+}
+
+.margin-left-10 {
+  margin-left: 10px !important;
+}
+
+.margin-left-15 {
+  margin-left: 15px !important;
+}
+
+.margin-left-20 {
+  margin-left: 20px !important;
+}
+
+.margin-left-25 {
+  margin-left: 25px !important;
+}
+
+.margin-left-30 {
+  margin-left: 30px !important;
+}
+
+.min-height-155 {
+  min-height: 155px !important;
+}
+
+.min-height-180 {
+  min-height: 180px !important;
+}
+
+.min-height-200 {
+  min-height: 200px !important;
+}
+
+.min-height-230 {
+  min-height: 230px !important;
+}
+
+.min-height-250 {
+  min-height: 250px !important;
+}
+
+.min-height-270 {
+  min-height: 270px !important;
+}
+
+.min-height-280 {
+  min-height: 280px !important;
+}
+
+.min-height-300 {
+  min-height: 300px !important;
+}
+
+.min-height-350 {
+  min-height: 350px !important;
+}
+.min-height-850 {
+  min-height: 600px !important;
+}
+.height-45 {
+  height: 45px !important;
+}
+.height-40 {
+  height: 40px !important;
+}
+.min-height-40 {
+  min-height: 40px !important;
+}
+.height-90 {
+  height: 90px !important;
+}
+.height-155 {
+  height: 155px !important;
+}
+
+.height-180 {
+  height: 180px !important;
+}
+
+.height-200 {
+  height: 200px !important;
+}
+
+.height-230 {
+  height: 230px !important;
+}
+
+.height-250 {
+  height: 250px !important;
+}
+
+.height-270 {
+  height: 270px !important;
+}
+
+.height-300 {
+  height: 300px !important;
+}
+
+.height-330 {
+  height: 330px !important;
+}
+
+.height-350 {
+  height: 350px !important;
+}
+
+.opacity-0 {
+  opacity: 0;
+}
+
+.no-visible {
+  visibility: hidden;
+}
+
+.width-200 {
+  width: 200px !important;
+}
+
+.vertical-align-bottom {
+  vertical-align: bottom !important;
+}
+
+.vertical-align-middle {
+  vertical-align: middle !important;
+}
+
+.vertical-align-top {
+  vertical-align: top !important;
+}
+
+.text-bold {
+  font-weight: bold !important;
+}
+
+.text-extra-small {
+  font-size: 11px !important;
+}
+
+.text-small {
+  font-size: 12px !important;
+}
+
+.text-large {
+  font-size: 16px !important;
+}
+
+.text-extra-large {
+  font-size: 17px !important;
+}
+
+h1.text-extra-large {
+  font-size: 50px !important;
+}
+
+.text-primary {
+  /* color: #505050 !important; */
+  color: #313131 !important;
+}
+
+.text-grey {
+  color: #c8c7cc !important;
+}
+
+.text-azure {
+  color: #0095C8 !important;
+}
+
+.text-orange {
+  color: #FF6600 !important;
+}
+
+.text-green {
+  color: #1FBBA6 !important;
+}
+
+.text-blue {
+  color: #5F8295 !important;
+}
+
+.text-pink {
+  color: #DD5A82 !important;
+}
+
+.text-purple {
+  color: #DD5A82 !important;
+}
+
+.text-bricky {
+  color: #894550 !important;
+}
+
+.text-yellow {
+  color: #FFB848 !important;
+}
+
+.text-red {
+  color: #C82E29 !important;
+}
+
+.text-white {
+  color: #ffffff !important;
+}
+
+a.text-white {
+  color: rgba(255, 255, 255, 0.6) !important;
+}
+a.text-white:hover {
+  color: #ffffff !important;
+}
+
+.text-dark {
+  color: #5b5b60 !important;
+}
+
+a.text-dark:hover {
+  color: #6f6f74 !important;
+}
+
+.text-light {
+  color: #c2c2c5 !important;
+}
+
+a.text-light:hover {
+  color: #adadb1 !important;
+}
+
+.text-white-transparent {
+  color: rgba(255, 255, 255, 0.7) !important;
+}
+.tex-height {
+	line-height: 19px !important;
+}
+/* ---------------------------------------------------------------------- */
+/*  Background Colors
+/* ---------------------------------------------------------------------- */
+.bg-body {
+  background: url("../img/sand.png") !important;
+  /* min-height: 100vh !important; */
+}
+.input-xxlarge {
+  width: 100% !important; 
+}
+
+.container-full {
+	width: 100% !important;
+}
+
+/* print custom */
+/*print*/
+@media print {
+	span {
+		color: red !important;
+	}
+	span.grey{
+		color: #888 !important;
+	}
+	strong.red {
+		color: red !important;
+	}
+	b.blue {
+		color: #000066 !important;
+	}
+}
+
+.rotated-text {
+     display: inline-block;
+     /* overflow: hidden; */
+
+     width: 1.5em;
+     line-height: 1.5;
+ }
+ .rotated-text__inner {
+     display: inline-block;
+     white-space: nowrap;
+
+     transform: translate(40%,20%) rotate(90deg);
+     transform-origin: 0 0;
+ }

@@ -1,0 +1,14 @@
+eclipse.preferences.version=1
+encoding//WebRoot/app/batch/batch.view.html=UTF-8
+encoding//WebRoot/app/code/code.controller.js=UTF-8
+encoding//WebRoot/app/code/code.view.html=UTF-8
+encoding//WebRoot/app/company/company.view.html=UTF-8
+encoding//WebRoot/app/dashboard/dashboard.view.html=UTF-8
+encoding//WebRoot/app/home/home.view.html=UTF-8
+encoding//WebRoot/app/login/login.view.html=UTF-8
+encoding//WebRoot/app/product/product.view.html=UTF-8
+encoding//WebRoot/app/profile/profile.view.html=UTF-8
+encoding//WebRoot/app/support/support.view.html=UTF-8
+encoding//WebRoot/tpl/header.html=UTF-8
+encoding//WebRoot/tpl/quick-sidebar.html=UTF-8
+encoding/<project>=UTF-8

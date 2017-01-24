@@ -1,0 +1,61 @@
+<div class="page-quick-sidebar bg-dark">
+    <div class="nav-justified">
+        <ul class="nav nav-tabs nav-justified">
+            <li class="active">
+                <a href="" data-target="#quick_sidebar_tab_1" data-toggle="tab" dropdown-menu-hover data-close-others="true"> 
+					Cấu hình chung
+                </a>
+            </li>
+        </ul>  
+        <div class="tab-content">
+            <div class="tab-pane active page-quick-sidebar-alerts" id="">
+                <div class="page-quick-sidebar-alerts-list">
+                    <ul class="feeds list-items">
+                        <li>
+			            	<div class="general-item-list">
+			                    <div class="item">
+			                        <div class="item-head">
+			                            <div class="item-details">
+			                                <img class="item-pic rounded" ng-src="data:image/gif;base64,{{r1.usr_picture}}">
+			                                <a href="" class="item-name primary-link bg-font-blue-dark">{{r1.usr_fullname}}</a>
+			                            </div>
+			                        </div>
+			                        <div class="item-body"> 
+			                        	<p class="no-margin bg-font-blue-dark">{{r1.usr_mobile}}</p> 
+			                        	<p class="no-margin bg-font-blue-dark">{{r1.usr_email}}</p> 
+			                        </div>
+			                    </div>
+			                </div>                            
+                        </li>
+                        <li>
+                            <a href="#/profile">
+                                <i class="icon-user"></i> Cá nhân </a>
+                        </li>                      
+                        <li>
+                            <a href="#">
+                                <i class="icon-lock"></i> Lock Screen </a>
+                        </li>
+                        <li>
+                            <a ng-click="cl2()">
+                                <i class="icon-key"></i> Log Out </a>
+                        </li>
+                    </ul>
+                    <h3 class="list-heading bg-font-blue-dark">Doanh Nghiệp</h3>
+                    <ul class="feeds list-items">
+                        <li>
+							<div class="input-group input-icon right">
+                                <span class="input-group-addon">
+                                    <i class="fa fa-list"></i>
+                                </span>
+                                <select class="form-control" 
+									ng-model="r3"
+									ng-options="i.com_fullname for i in r2"
+									ng-change="f1(r3.com_id)"></select> 
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>      
+    </div>
+</div>
