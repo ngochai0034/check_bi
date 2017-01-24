@@ -1,0 +1,423 @@
+<div class="page-content bg-body">
+    <div class="container bg-body container-full">
+    	<div class="row">
+			<div class="col-md-12">
+				<div class="portlet light blue-dark portlet-fit margin-bottom-0">
+					<div class="portlet-title padding-top-0 padding-bottom-0 min-height-40">
+						<div class="caption">
+			                <span class="caption-subject bg-font-blue-dark"> Lựa chọn sản phẩm: </span>
+			            </div>
+			            <div class="inputs col-md-9 col-ms-7">
+	                        <div class="portlet-input input-inline input-xxlarge">
+	                            <select id="single" class="form-control select2"
+					                ng-options="i.pro_name for i in o1" ng-model="m1" ng-change="c1(m1)">
+					                    <option></option>	                    
+				                </select>
+	                        </div>
+	                    </div>
+					</div>
+				</div>
+				<div class="portlet box blue-dark">
+	                <div class="portlet-title">
+	                    <div class="caption">
+	                        {{m1.pro_name}} 
+                        </div>
+	                    <div class="actions">
+	                        <a href="" class="btn btn-default btn-sm">
+	                            <i class="fa fa-pencil"></i> Tải Lại </a>
+	                        <a class="btn btn-default btn-sm" ng-click="cl1()">
+	                            <i class="fa fa-plus"></i> Tạo Lô Hàng Mới </a>
+                            
+	                    </div>
+	                </div>
+	                <div class="portlet-body bg-body">
+						<table ng-table="tableParamsBatch" class="table">
+							<tr ng-repeat="p in tableDisplayBatch">
+								<td class="rowTd padding-right-0">
+									<a type=button class="btn btn-outline btn-sm c-btn-border-1x c-btn-blue-dark" uib-tooltip="Thông tin chi tiết lô hàng"
+										ng-click="cl2(p)">
+										<i class="fa fa-check" ng-if="s01==p.bat_id"></i>
+										<i class="fa fa-circle-o" ng-if="s01!=p.bat_id"></i>
+									</a>
+								</td>
+								<td class="center padding-right-0 padding-left-0"><img data-ng-src="data:image/gif;base64,{{p.bat_picture}}" class="img-rounded" alt="" height="30"/></td>
+								<td class="rowTd" data-title="'Tên lô hàng'"  	sortable="'bat_name'">{{p.bat_name}}</td>
+								<td class="rowTd" data-title="'Ngày sản xuất'" 	sortable="'bat_mandate'">{{p.bat_mandate}}</td>
+								<td class="rowTd" data-title="'Ngày hết hạn'"   sortable="'bat_expdate'">{{p.bat_expdate}}</td>
+								
+								<td class="center" data-title="'Tem kích hoạt'" sortable="'bat_amount'">{{p.bat_amount}}</td>
+								<td class="rowTd" data-title="'Nhân viên tạo lô'" sortable="'p.usr_fullname'">{{p.usr_fullname}}</td>
+								<!-- 
+								<td class="rowTd" data-title="'Số lượt quét'" sortable="'bat_amou'"></td>
+								<td class="rowTd" data-title="'rating'" sortable="'bat_amou'"></td>
+								 -->
+								<td class="rowTd" data-title="'Trạng thái'" sortable="'bat_status'">
+									<div ng-if="p.bat_status == 0">
+						          		<span class="label label-sm label-success">Chưa kích hoạt</span>									          		
+							    	</div>
+							    	<div ng-if="p.bat_status == 1">
+						          		<span class="label label-sm label-danger">Đã kích hoạt</span>									          		
+							    	</div>
+							    	<div ng-if="p.bat_status == 2">
+						          		<span class="label label-sm label-info">Hết hàng</span>									          		
+							    	</div>
+								</td>
+							</tr>
+						</table>
+	                </div>
+				</div>
+			</div>
+		</div>
+		<div class="row" ng-show="bl1">
+			<div class="col-md-8 ">
+	            <!-- BEGIN Portlet PORTLET-->
+	            <div class="portlet box blue-dark">
+	                <div class="portlet-title">
+	                    <div class="caption">
+	                        <i class="fa fa-gift"></i> {{s0.bat_name}} </div>
+	                    <div class="actions">
+	                        <a href="" class="btn btn-default btn-sm" ng-click="cl3(s0)">
+	                            <i class="fa fa-pencil"></i> Sửa Đổi Thông Tin 
+                           	</a>
+	                        
+	                    </div>
+	                </div>
+	                <div class="portlet-body bg-body">
+	                    <uib-tabset class="tabbable no-padding no-margin">
+							<uib-tab heading="Biểu đồ thống kê" class="padding-top-5">
+								<div class="row" ng-if="!showUpdateForm" ng-init="showUpdateForm=false">
+									<div class="col-md-4 center">
+										<img class="img-responsive" data-ng-src="data:image/jpeg;base64,{{s0.bat_picture}}" alt="">
+									</div>
+									<div class="col-md-8">
+										<p ng-bind-html="s0.bat_detail"></p>
+										<hr>
+										<blockquote>
+											<footer>
+												<strong>Loại sản phẩm: </strong><cite title="Source Title">{{m1.pro_name}}</cite>
+											</footer>
+											<footer>
+												<strong>Thông tin khuyến mại: </strong><cite title="Source Title"><a href="#">{{s0.bat_promotion}}</a></cite>
+											</footer>
+											<footer>
+												<strong>Thông tin cảnh báo: </strong><cite title="Source Title"><a href="#">{{s0.bat_warning}}</a></cite>
+											</footer>
+										</blockquote>
+									</div>
+								</div>								
+							</uib-tab>
+							<uib-tab heading="Lịch sử truy cập" class="padding-top-5">
+								<div class="row">
+	                                <div class="col-md-12">
+	                                    
+	                                </div>
+	                            </div>
+							</uib-tab>
+						</uib-tabset>
+	                </div>
+	            </div>
+	            <!-- END Portlet PORTLET-->
+	        </div>
+			<div class="col-md-4 ">
+	            <!-- BEGIN Portlet PORTLET-->
+	            <div class="portlet box blue-dark">
+	                <div class="portlet-title">
+	                    <div class="caption">
+	                        <i class="fa fa-pie-chart"></i> Thống Kê Các Dòng Sản Phẩm 
+                        </div>
+	                </div>
+	                <div class="portlet-body">
+	                    <div class="scroller" style="height:200px" data-rail-visible="1" data-rail-color="yellow" data-handle-color="#a1b2bd">
+	                    </div>
+	                </div>
+	            </div>
+	            <!-- END Portlet PORTLET-->
+	        </div>
+		</div>
+    </div>
+</div>
+<div class="modal fade" id="md1" data-backdrop="static" data-keyboard="false">
+   	<div class="modal-dialog modal-lg">
+       	<div class="modal-content">
+       		<div class="modal-header bg-blue-dark bg-font-blue-dark">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+                <h4 class="modal-title"> Điền Thông Tin Về Sản Phẩm Mới</h4>
+            </div>
+            <div class="modal-body font-blue-dark">
+                <div class="portlet light no-padding">
+                 <div class="portlet-body form">
+                     <form role="form" name="fm1">
+                            <div class="row">
+                            	<div class="col-md-5">                                                    		
+                              <div class="form-group">
+                                  <label>Loại sản phẩm: <span class="required"> * </span></label>
+                                  <div class="input-group">
+                                      <span class="input-group-addon">
+                                          <i class="fa fa-font"></i>
+                                      </span>
+                                      <div class="input-icon right">
+                                      	<i class="fa fa-check font-green-jungle" ng-hide="fm1.n11.$error.required"></i> 
+                                          <i class="fa fa-warning font-red" ng-show="fm1.n11.$error.required"></i> 
+                                       <input type="text" class="form-control" name="n11" ng-disabled="true" ng-model="m11" required> 
+                                      </div>
+                                     </div>
+                              </div>
+                            	</div>
+                            	<div class="col-md-7"> 
+                              <div class="form-group">
+                                  <label>Tên lô sản phẩm: <span class="required"> * </span></label>
+                                  <div class="input-group">
+                                      <span class="input-group-addon">
+                                          <i class="fa fa-list"></i>
+                                      </span>
+                                      <div class="input-icon right" id="pulsate-regular">
+                                      	<i class="fa fa-check font-green-jungle" ng-hide="fm1.n12.$error.required"></i> 
+                                          <i class="fa fa-warning font-red" ng-show="fm1.n12.$error.required"></i> 
+                                       <input type="text" class="form-control" name="n12" ng-model="m12" required> 
+                                      </div>
+                                     </div>
+                              </div>
+                            	</div>
+                            </div>	
+                            <div class="row">
+                            	<div class="col-md-6">                                                    		
+                              <div class="form-group">
+                                  <label>Ngày sản xuất:</label>
+                                  <div class="input-group">
+                                      <span class="input-group-addon">
+                                          <i class="fa fa-font"></i>
+                                      </span>
+                                      <!-- <input type="text" class="form-control" name="n13" ng-model="m13"> --> 
+                                      <input class="form-control form-control-inline date-picker" type="text" name="n13" ng-model="m13" 
+                                      data-date-format="yyyy/mm/dd"/>
+                                     </div>
+                              </div>
+                            	</div>
+                            	<div class="col-md-6"> 
+                              <div class="form-group">
+                                  <label>Ngày hết hạn:</label>
+                                  <div class="input-group">
+                                      <span class="input-group-addon">
+                                          <i class="fa fa-list"></i>
+                                      </span>
+                                      <!-- <input type="text" class="form-control" name="n14" ng-model="m14"> --> 
+                                           <input class="form-control form-control-inline date-picker" type="text" name="n14" ng-model="m14"
+                                           data-date-format="yyyy/mm/dd"/>
+                                          </div>
+                                   </div>
+                                 	</div>
+                                 </div>	
+                                 <div class="form-group">
+                                     <label>Trạng thái: <span class="required"> * </span></label>
+                                     <div class="input-group">
+                                         <span class="input-group-addon">
+                                             <i class="fa fa-font"></i>
+                                         </span>
+                                         <div class="input-icon right">
+                                         	<i class="fa fa-check font-green-jungle" ng-hide="fm1.n15.$error.required"></i> 
+                                             <i class="fa fa-warning font-red" ng-show="fm1.n15.$error.required"></i> 
+                                          <select id="single" class="form-control select2"
+          									ng-options="i.n for i in o11" name="n15" ng-model="m15" required>
+              								<option></option>	                    
+         								</select>
+                                         </div>
+                                        </div>
+                                 </div>
+                                 <div class="form-group">
+                                     <label>Thông tin khuyến mại:</label>
+                                     <div class="input-group">
+                                         <span class="input-group-addon">
+                                             <i class="fa fa-font"></i>
+                                         </span>
+                                         <input type="text" class="form-control" name="n16" ng-model="m16"> 
+                                        </div>
+                                 </div>
+                                 <div class="form-group">
+                                     <label>Thông tin cảnh báo:</label>
+                                     <div class="input-group">
+                                         <span class="input-group-addon">
+                                             <i class="fa fa-font"></i>
+                                         </span>
+                                         <input type="text" class="form-control" name="n17" ng-model="m17"> 
+                                        </div>
+                                 </div>
+                                 <div class="form-group">
+                                     <label>Thông tin chi tiết lô sản phẩm mới:</label> {{m18}}
+                                        <div text-angular name="n18" ng-model="m18" required></div>	                                                        
+                                 </div>	                                                    
+                                 <div class="form-group">
+                                     <label>Lựa chọn ảnh đại diện của lô sản phẩm:</label>
+                                 	<input type="file" img-cropper-fileread image="i11.sourceImage" class="form-control"/>
+                                 </div>
+									<div class="row" ng-show="i11.croppedImage!=null">
+                                 	<div class="col-md-6">
+							  <div>
+							       <canvas width="300" height="300" id="canvas" image-cropper image="i11.sourceImage" cropped-image="i11.croppedImage" 
+							       crop-width="300" crop-height="300" keep-aspect="true" crop-area-bounds="i12"></canvas>
+							  </div>
+							                                 	</div>
+							                                 	<div class="col-md-6">
+							  <div><img ng-src="{{i11.croppedImage}}" /></div>
+							                                 	</div>
+							</div>
+                          </form>
+                      </div>
+                  </div>
+                 </div>
+                 <div class="modal-footer">
+                     <button type="button" data-dismiss="modal" class="btn dark btn-outline">Hủy</button>
+                     <button type="button" class="btn green" ng-click="cl11(m12, m13, m14, m15, m16, m17, m18, i11.croppedImage)" ng-disabled="">Tạo Mới</button>
+                 </div>
+            	</div>
+         </div>
+ 	</div>
+ <div class="modal fade" id="md2" data-backdrop="static" data-keyboard="false">
+						    	<div class="modal-dialog modal-lg">
+                                	<div class="modal-content">
+                                		<div class="modal-header bg-blue-dark bg-font-blue-dark">
+	                                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+	                                        <h4 class="modal-title"> Điền Thông Tin Về Sản Phẩm Mới</h4>
+	                                    </div>
+	                                    <div class="modal-body font-blue-dark">
+	                                        <div class="portlet light no-padding">
+		                                        <div class="portlet-body form">
+		                                            <form role="form" name="fm1">
+	                                                    <div class="row">
+	                                                    	<div class="col-md-5">                                                    		
+			                                                    <div class="form-group">
+			                                                        <label>Loại sản phẩm: <span class="required"> * </span></label>
+			                                                        <div class="input-group">
+			                                                            <span class="input-group-addon">
+			                                                                <i class="fa fa-font"></i>
+			                                                            </span>
+			                                                            <div class="input-icon right">
+			                                                            	<i class="fa fa-check font-green-jungle" ng-hide="fm1.n11.$error.required"></i> 
+			                                                                <i class="fa fa-warning font-red" ng-show="fm1.n11.$error.required"></i> 
+				                                                            <input type="text" class="form-control" name="nu11" ng-model="mu11" required> 
+			                                                            </div>
+		                                                            </div>
+			                                                    </div>
+	                                                    	</div>
+	                                                    	<div class="col-md-7"> 
+			                                                    <div class="form-group">
+			                                                        <label>Tên lô sản phẩm: <span class="required"> * </span></label>
+			                                                        <div class="input-group">
+			                                                            <span class="input-group-addon">
+			                                                                <i class="fa fa-list"></i>
+			                                                            </span>
+			                                                            <div class="input-icon right" id="pulsate-regular">
+			                                                            	<i class="fa fa-check font-green-jungle" ng-hide="fm1.n12.$error.required"></i> 
+			                                                                <i class="fa fa-warning font-red" ng-show="fm1.n12.$error.required"></i> 
+				                                                            <input type="text" class="form-control" name="nu12" ng-model="mu12" required> 
+			                                                            </div>
+		                                                            </div>
+			                                                    </div>
+	                                                    	</div>
+	                                                    </div>	
+	                                                    <div class="row">
+	                                                    	<div class="col-md-6">                                                    		
+			                                                    <div class="form-group">
+			                                                        <label>Ngày sản xuất:</label>
+			                                                        <div class="input-group">
+			                                                            <span class="input-group-addon">
+			                                                                <i class="fa fa-font"></i>
+			                                                            </span>
+			                                                            <input type="text" class="form-control form-control-inline date-picker" name="nu13" ng-model="mu13"
+			                                                            data-date-format="yyyy/mm/dd"> 
+		                                                            </div>
+			                                                    </div>
+	                                                    	</div>
+	                                                    	<div class="col-md-6"> 
+			                                                    <div class="form-group">
+			                                                        <label>Ngày hết hạn:</label>
+			                                                        <div class="input-group">
+			                                                            <span class="input-group-addon">
+			                                                                <i class="fa fa-list"></i>
+			                                                            </span>
+			                                                            <input type="text" class="form-control form-control-inline date-picker" name="nu14" ng-model="mu14"
+			                                                            data-date-format="yyyy/mm/dd"> 
+		                                                            </div>
+			                                                    </div>
+	                                                    	</div>
+	                                                    </div>	
+	                                                    <div class="form-group">
+	                                                        <label>Trạng thái: <span class="required"> * </span></label>
+	                                                        <div class="input-group">
+	                                                            <span class="input-group-addon">
+	                                                                <i class="fa fa-font"></i>
+	                                                            </span>
+	                                                            <div class="input-icon right">
+	                                                            	<i class="fa fa-check font-green-jungle" ng-hide="fm1.n15.$error.required"></i> 
+	                                                                <i class="fa fa-warning font-red" ng-show="fm1.n15.$error.required"></i> 
+		                                                            <select id="single" class="form-control select2"
+														                ng-options="i.n for i in o11" name="nu15" ng-model="mu15" required>
+														                    <option></option>	                    
+													                </select>
+	                                                            </div>
+                                                            </div>
+	                                                    </div>
+	                                                    <div class="form-group">
+	                                                        <label>Thông tin khuyến mại:</label>
+	                                                        <div class="input-group">
+	                                                            <span class="input-group-addon">
+	                                                                <i class="fa fa-font"></i>
+	                                                            </span>
+	                                                            <input type="text" class="form-control" name="nu16" ng-model="mu16"> 
+                                                            </div>
+	                                                    </div>
+	                                                    <div class="form-group">
+	                                                        <label>Thông tin cảnh báo:</label>
+	                                                        <div class="input-group">
+	                                                            <span class="input-group-addon">
+	                                                                <i class="fa fa-font"></i>
+	                                                            </span>
+	                                                            <input type="text" class="form-control" name="nu17" ng-model="mu17"> 
+                                                            </div>
+	                                                    </div>
+	                                                    <div class="form-group">
+	                                                        <label>Thông tin chi tiết lô sản phẩm mới:</label>
+                                                            <div text-angular name="nu18" ng-model="mu18" required></div>
+	                                                        
+	                                                    </div>
+	                                                    <div class="form-group">
+	                                                        <label>Thay đổi ảnh đại diện khác:</label>
+	                                                    	<input type="file" img-cropper-fileread image="i21.sourceImage" class="form-control"/>
+	                                                    </div>
+	                                                    <img class="img-responsive" data-ng-src="data:image/jpeg;base64,{{mu19}}" alt="" ng-hide="i21.croppedImage!=null">
+												        <div class="row" ng-show="i21.croppedImage!=null">
+	                                                    	<div class="col-md-6">
+														        <div>
+														             <canvas width="300" height="300" id="canvas" image-cropper image="i21.sourceImage" cropped-image="i21.croppedImage" 
+														             crop-width="300" crop-height="300" keep-aspect="true" crop-area-bounds="i22"></canvas>
+														        </div>
+	                                                    	</div>
+	                                                    	<div class="col-md-6">
+														        <div><img ng-src="{{i21.croppedImage}}" /></div>
+	                                                    	</div>
+												        </div>
+		                                            </form>
+		                                        </div>
+		                                    </div>
+	                                    </div>
+	                                    <div class="modal-footer">
+	                                        <button type="button" data-dismiss="modal" class="btn dark btn-outline">Hủy</button>
+	                                        <button type="button" class="btn green" ng-click="cl32(mu10, mu12, mu13, mu14, mu15, mu16, mu17, mu18, i21.croppedImage)">Cập Nhật</button>
+	                                        <button type="button" class="btn red" data-toggle="modal" data-target="#md21">Xóa Sản Phẩm</button>
+	                                    </div>
+                                	</div>
+	                            </div>
+						  	</div>
+						  	<div class="modal fade" id="md21" role="dialog" aria-hidden="true">
+							    <div class="modal-dialog modal-sm">
+	                                <div class="modal-content">
+	                                    <div class="modal-header bg-blue-dark bg-font-blue-dark">
+	                                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+	                                        <h4 class="modal-title"> Xác Nhận Xóa Sản Phẩm</h4>
+	                                    </div>
+	                                    <div class="modal-body font-blue-dark">
+	                                        <button type="button" data-dismiss="modal" class="btn dark">Hủy</button>
+	                                        <button type="button" class="btn red pull-right" ng-click="cl31(s01)">Xóa Sản Phẩm</button>
+	                                    </div>
+	                                </div>
+	                            </div>
+						  	</div>

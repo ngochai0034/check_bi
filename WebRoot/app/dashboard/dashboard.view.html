@@ -1,0 +1,213 @@
+<div class="page-content bg-body">
+    <div class="container bg-body padding-left-0 padding-right-0">
+    	<div class="row">
+			<div class="col-md-12">
+				<div class="portlet light portlet-fit margin-bottom-0">
+					<div class="portlet-title padding-top-0 padding-bottom-0 min-height-40">
+						<div class="caption">
+			                <i class=" icon-layers font-green"></i>
+			                <span class="caption-subject font-green bold uppercase">dịch vụ</span>
+			            </div>
+			            <div class="inputs col-md-9 col-ms-7">
+	                        <div class="portlet-input input-inline input-xxlarge">
+	                            <select id="single" class="form-control select2"
+					                ng-options="s.name for s in optionService" ng-model="modelServiceSelected" ng-change="changeService(modelServiceSelected, 0)">
+					                    <option></option>	                    
+				                </select>
+	                        </div>
+	                    </div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-4">
+				<div class="portlet light portlet-fit ">
+					<div class="portlet-title padding-top-0 padding-bottom-0 min-height-40">
+						<div class="caption">
+			                <span class="caption-subject font-green bold uppercase">Thành Phố/Tỉnh</span>
+			            </div>
+			            <div class="inputs col-md-6 col-ms-6 col-xs-5">
+	                        <div class="portlet-input input-inline input-xxlarge">
+	                            <select id="single" class="form-control select2"
+					                ng-options="s.area_name for s in optionArea" ng-model="modelAreaSelected" ng-change="changeArea(modelAreaSelected, 0)">
+					                    <option></option>	                    
+				                </select>
+	                        </div>
+	                    </div>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-4">
+				<div class="portlet light portlet-fit ">
+					<div class="portlet-title padding-top-0 padding-bottom-0 min-height-40">
+						<div class="caption">
+			                <span class="caption-subject font-green bold uppercase">Quận/Huyện</span>
+			            </div>
+			            <div class="inputs col-md-6 col-ms-6 col-xs-5">
+	                        <div class="portlet-input input-inline input-xxlarge">
+	                            <select id="single" class="form-control select2"
+					                ng-options="s.area_name for s in optionArea1" ng-model="modelAreaSelected1" ng-change="changeArea1(modelAreaSelected1, 0)">
+					                    <option></option>	                    
+				                </select>
+	                        </div>
+	                    </div>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-4">
+				<div class="portlet light portlet-fit ">
+					<div class="portlet-title padding-top-0 padding-bottom-0 min-height-40">
+						<div class="caption">
+			                <span class="caption-subject font-green bold uppercase"> Phường/Xã</span>
+			            </div>
+			            <div class="inputs col-md-6 col-ms-6 col-xs-5">
+	                        <div class="portlet-input input-inline input-xxlarge">
+	                            <select id="single" class="form-control select2"
+					                ng-options="s.area_name for s in optionArea2" ng-model="modelAreaSelected2" ng-change="changeArea2(modelAreaSelected2, 0)">
+					                    <option></option>	                    
+				                </select>
+	                        </div>
+	                    </div>
+					</div>
+				</div>
+			</div>
+    	</div>
+		<div class="row">
+			<div class="col-md-4">
+				<div class="portlet box blue-hoki">
+					<div class="portlet-title padding-top-0 padding-bottom-0 min-height-40">
+						<div class="caption">
+			                <i class=" icon-layers"></i>
+			                <span class="caption-subject bold uppercase">Average KPI value</span>
+			            </div>
+			            <div class="actions padding-bottom-5">
+			                <a class="btn btn-circle btn-icon-only btn-default" href="javascript:;">
+			                    <i class="icon-cloud-upload"></i>
+			                </a>
+			                <a class="btn btn-circle btn-icon-only btn-default" href="javascript:;">
+			                    <i class="icon-wrench"></i>
+			                </a>
+			                <a class="btn btn-circle btn-icon-only btn-default" href="javascript:;">
+			                    <i class="icon-trash"></i>
+			                </a>
+			            </div>
+					</div>
+					<div class="portlet-body">
+		            	<div id="highchart_11" style=""></div>
+		            	Lượt đánh giá: {{modelKPICounter}}
+		        	</div>
+				</div>
+			</div>
+		   	<div class="col-md-8">
+		       	<div class="portlet box yellow">
+		       		<div class="portlet-title padding-top-0 padding-bottom-0 min-height-40">
+		            	<div class="caption">
+		                   	<i class="fa fa-bar-chart"></i>
+		                   	<span class="caption-subject bold uppercase">This week</span>
+		               	</div>
+		               	<div class="actions padding-bottom-5">
+		                   	<a class="btn btn-circle btn-icon-only btn-default" href="javascript:;">
+		                       	<i class="icon-cloud-upload"></i>
+		                   	</a>
+		                   	<a class="btn btn-circle btn-icon-only btn-default" href="javascript:;">
+		                       	<i class="icon-wrench"></i>
+		                   	</a>
+		                   	<a class="btn btn-circle btn-icon-only btn-default" href="javascript:;">
+		                       	<i class="icon-trash"></i>
+		                   	</a>
+		               	</div>
+		           	</div>
+		           	<div class="portlet-body">
+		            	<div id="highchart_12" style=""></div>
+		        	</div>
+		        </div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-5">
+				<div class="portlet box red-sunglo">
+					<div class="portlet-title padding-top-0 padding-bottom-0 min-height-40">
+						<div class="caption">
+			                <i class=" icon-layers"></i>
+			                <span class="caption-subject bold uppercase">Bình Luận</span>
+			            </div>
+			            <div class="actions padding-bottom-5">
+			                <input type="number" data-verticalbuttons="true" data-verticalupclass="ti-angle-up" data-verticaldownclass="ti-angle-down"
+							ng-model="modelRefreshTime" ng-change="changeRefreshTime(modelRefreshTime)">	                
+			            </div>
+					</div>
+					<div class="portlet-body">
+		            	<div class="scroller" style="height: 200px;" data-always-visible="1" data-rail-visible1="0" data-handle-color="#D7DCE2">
+	                        <div class="general-item-list">
+	                            <div class="item" ng-repeat="p in modelEventList">
+	                                <div class="item-head">
+	                                    <div class="item-details">
+	                                    	<img class="item-pic rounded" src="assets/pages/img/avatars/team8.jpg">
+	                                        <a href="" class="item-name primary-link">QRID | {{p.QRID}}</a>
+	                                    	<br>{{p.created_time}}
+	                                    </div>
+	                                    <span class="item-status">
+	                                    	{{p.value}}
+	                                        <span class="fa fa-star font-yellow"></span>
+                                        </span>
+	                                </div>
+	                                <div class="item-body"> {{p.comment}} </div>
+	                            </div>	                            
+	                        </div>
+	                    </div>
+		        	</div>
+				</div>
+			</div>
+			<div class="col-md-4">
+		       	<div class="portlet box blue">
+		       		<div class="portlet-title padding-top-0 padding-bottom-0 min-height-40">
+		            	<div class="caption">
+		                   	<i class="fa fa-globe"></i>
+		                   	<span class="caption-subject bold uppercase"></span>
+		               	</div>
+		               	<div class="actions">
+		                   	<a class="btn btn-circle btn-icon-only btn-default" href="javascript:;">
+		                       	<i class="icon-cloud-upload"></i>
+		                   	</a>
+		                   	<a class="btn btn-circle btn-icon-only btn-default" href="javascript:;">
+		                       	<i class="icon-wrench"></i>
+		                   	</a>
+		                   	<a class="btn btn-circle btn-icon-only btn-default" href="javascript:;">
+		                       	<i class="icon-trash"></i>
+		                   	</a>
+		               	</div>
+		           	</div>
+		           	<div class="portlet-body">
+		            	<div id="highchart_21" style="height:200px;"></div>
+		        	</div>
+		        </div>
+			</div>
+		   	<div class="col-md-3">
+		       	<div class="portlet box red-sunglo">
+		       		<div class="portlet-title padding-top-0 padding-bottom-0 min-height-40">
+		            	<div class="caption">
+		                   	<i class="fa fa-globe"></i>
+		                   	<span class="caption-subject bold uppercase">Bản Đồ</span>
+		               	</div>
+		               	<div class="actions">
+		                   	<a class="btn btn-circle btn-icon-only btn-default" href="javascript:;">
+		                       	<i class="icon-cloud-upload"></i>
+		                   	</a>
+		                   	<a class="btn btn-circle btn-icon-only btn-default" href="javascript:;">
+		                       	<i class="icon-wrench"></i>
+		                   	</a>
+		                   	<a class="btn btn-circle btn-icon-only btn-default" href="javascript:;">
+		                       	<i class="icon-trash"></i>
+		                   	</a>
+		               	</div>
+		           	</div>
+		           	<div class="portlet-body">
+		            	<!-- <div id="highchart_22" style="height:200px;"></div> -->
+		            	<img class="img-responsive" style="height:200px;" alt="" ng-src="//upload.wikimedia.org/wikipedia/commons/6/66/B%E1%BA%A3n_%C4%91%E1%BB%93_H%C3%A0_N%E1%BB%99i.png">
+		        	</div>
+		        </div>
+			</div>
+		</div>
+    </div>
+</div>

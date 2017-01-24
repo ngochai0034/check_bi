@@ -1,0 +1,324 @@
+<div class="page-content bg-body">
+    <div class="container bg-body container-full">
+    	<div class="row">
+			<div class="col-md-12">
+				<div class="portlet box blue-dark">
+	                <div class="portlet-title">
+	                    <div class="caption">
+	                        <i class="fa fa-gift"></i> THỐNG KÊ CÁC SẢN PHẨM </div>
+	                    <div class="actions">
+	                        <!-- <a class="btn btn-default btn-sm">
+	                            <i class="fa fa-pencil"></i> Tải Lại </a> -->
+	                        <a href="" class="btn btn-default btn-sm" ng-click="cl1()">
+	                            <i class="fa fa-plus"></i> Tạo Sản Phẩm Mới </a>
+                            
+	                    </div>
+	                </div>
+	                <div class="portlet-body bg-body">
+						<table ng-table="tableParamsProduct" class="table fadeInDown animated">
+							<tr ng-repeat="p in tableDisplayProduct">
+								<td class="rowTd  padding-right-0">
+									<a type=button class="btn btn-outline btn-sm c-btn-border-1x c-btn-blue-dark" uib-tooltip="Thông tin chi tiết sản phẩm"
+										ng-click="cl2(p)">
+										<i class="fa fa-check" ng-if="s01==p.pro_id"></i>
+										<i class="fa fa-circle-o" ng-if="s01!=p.pro_id"></i>
+									</a>
+								</td>
+								<td class="center padding-right-0 padding-left-0"><img data-ng-src="data:image/png;base64,{{p.pro_picture}}" class="img-rounded" alt="" height="30"/></td>
+								<td class="rowTd" data-title="'Tên sản Phẩm'"   sortable="'pro_name'">{{p.pro_name}}</td>
+								<td class="center" data-title="'Tổng lô hàng'"   sortable="'pro_battotal'">{{p.pro_batchtotal}}</td>
+								<td class="center" data-title="'Đã bán / Tổng SP'"   sortable="'pro_itetotal'"> {{p.pro_itemsold}} / {{p.pro_itemtotal}}
+								
+								</td>
+								<td class="rowTd" data-title="'rating'"   sortable="'pro_name'">
+									<div ng-init="x = 3">
+										<uib-rating ng-model="x" max="5" state-on="'fa fa-star text-yellow text-extra-large margin-right-5'" state-off="'fa fa-star-o text-large margin-right-5'"></uib-rating>											
+									</div>
+								</td>
+								<td class="rowTd" data-title="'trạng thái'"   sortable="'pro_name'">
+									<div ng-if="p.pro_status == 0">
+						          		<span class="label label-sm label-default">Chưa sản xuất</span>									          		
+							    	</div>
+							    	<div ng-if="p.pro_status == 1">
+						          		<span class="label label-sm label-success">Đang sản xuất</span>									          		
+							    	</div>
+							    	<div ng-if="p.pro_status == 2">
+						          		<span class="label label-sm label-danger">Tạm dừng sản xuất</span>									          		
+							    	</div>
+							    	<div ng-if="p.pro_status == 3">
+						          		<span class="label label-sm label-info">Dừng sản xuất</span>									          		
+							    	</div>
+								</td>
+							</tr>
+						</table>
+	                </div>
+				</div>
+			</div>
+		</div>
+		<div class="row" ng-show="bl1">
+			<div class="col-md-8 ">
+	            <!-- BEGIN Portlet PORTLET-->
+	            <div class="portlet box blue-dark">
+	                <div class="portlet-title">
+	                    <div class="caption">
+	                        <i class="fa fa-gift"></i> {{s0.pro_name}} </div>
+	                    <div class="actions">
+	                        <a href="" class="btn btn-default btn-sm" ng-click="cl3(s0)">
+	                            <i class="fa fa-pencil"></i> 
+	                            Sửa Đổi Thông Tin	                             
+                            </a>
+                            
+	                    </div>
+	                </div>
+	                <div class="portlet-body bg-body">
+	                    <uib-tabset class="tabbable no-padding no-margin">
+							<uib-tab heading="Biểu đồ thống kê" class="padding-top-5">
+								<div class="row">
+									<div class="col-md-4 col-xs-4 center">
+										<img class="img-responsive" data-ng-src="data:image/jpeg;base64,{{s0.pro_picture}}" alt="">
+									</div>
+									<div class="col-md-8 col-xs-8">
+										<p ng-bind-html="s0.pro_detail"></p>
+										<blockquote>
+											<footer>
+												Từ khóa tìm kiếm: <cite title="Source Title">{{s0.pro_tag}}</cite>
+											</footer>
+											<footer>
+												Link hướng dẫn sử dụng: <cite title="Source Title"><a href="#">{{s0.pro_manuallink}}</a></cite>
+											</footer>
+										</blockquote>
+										<button class="btn btn-primary btn-block" ng-click="clickUpdateForm(modelSelectedProduct)" ng-if="(modelCompany.mem_type <= 2)">
+											Sửa đổi thông tin
+										</button>
+									</div>
+								</div>								
+							</uib-tab>
+							<uib-tab heading="Lịch sử truy cập" class="padding-top-5">
+								<div class="row">
+	                                <div class="col-md-12">
+										<div class="form-group">
+                                        	<label>Thay đổi ảnh đại diện khác:</label>
+                                           	<input type="file"  img-cropper-fileread image="i21.sourceImage" class="form-control"/>
+                                        </div>
+                                        <img class="img-responsive" data-ng-src="data:image/jpeg;base64,{{mu6}}" alt="" ng-hide="i21.croppedImage!=null">
+								        <div class="row" ng-show="i21.croppedImage!=null">
+                                                 	<div class="col-md-6">
+										        <div>
+										             <canvas width="300" height="300" id="canvas2" image-cropper image="i21.sourceImage" cropped-image="i21.croppedImage" 
+										             crop-width="300" crop-height="300" keep-aspect="true" touch-radius="30" crop-area-bounds="i22"></canvas>
+										        </div>
+                                                 	</div>
+                                                 	<div class="col-md-6">
+										        <div><img ng-src="{{i21.croppedImage}}" /></div>
+                                                 	</div>
+								        </div>	                                    
+	                                </div>
+	                            </div>
+							</uib-tab>
+						</uib-tabset>
+	                </div>
+	            </div>
+	            <!-- END Portlet PORTLET-->
+	        </div>
+			<div class="col-md-4 ">
+	            <!-- BEGIN Portlet PORTLET-->
+	            <div class="portlet box blue-dark">
+	                <div class="portlet-title">
+	                    <div class="caption">
+	                        <i class="fa fa-pie-chart"></i> Thống Kê Các Dòng Sản Phẩm 
+                        </div>
+	                </div>
+	                <div class="portlet-body">
+	                    
+	                </div>
+	            </div>
+	            <!-- END Portlet PORTLET-->
+	        </div>
+		</div>
+    </div>
+</div>
+<div class="modal fade" id="md0" data-backdrop="static" data-keyboard="false">
+	<div class="modal-dialog modal-lg">
+    	<div class="modal-content">
+        	<div class="modal-header bg-blue-dark bg-font-blue-dark">
+            	<button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+            	<h4 class="modal-title"> Điền Thông Tin Về Sản Phẩm Mới</h4>
+        	</div>
+        	<div class="modal-body font-blue-dark">
+            	<div class="portlet light no-padding">
+                	<div class="portlet-body form">
+                    	<form role="form">
+                        	<div class="form-group">
+                            	<label>Tên sản phẩm mới:</label>
+                            	<div class="input-group">
+                                	<span class="input-group-addon">
+                                    	<i class="fa fa-font"></i>
+                                	</span>
+                                	<input type="text" class="form-control" ng-model="m1"> 
+                            	</div>
+                        	</div>
+                        	<div class="row">
+                            	<div class="col-md-7">                                                    		
+                                	<div class="form-group">
+                                    	<label>Tag sản phẩm (các từ khóa tìm kiếm):</label>
+                                  		<div class="input-group">
+                                       		<span class="input-group-addon">
+                                       			<i class="fa fa-font"></i>
+                                           	</span>
+                                          		<input type="text" class="form-control" ng-model="m2"> 
+                                    	</div>
+                                	</div>
+                               	</div>
+                           		<div class="col-md-5"> 
+                             		<div class="form-group">
+                                  		<label>Trạng thái sản xuất:</label>
+                               			<div class="input-group">
+                                     		<span class="input-group-addon">
+                                          		<i class="fa fa-list"></i>
+                                         	</span>
+                                        	<select id="single" class="form-control select2"
+						                		ng-options="i.l for i in o1" ng-model="m3">
+						                    	<option></option>	                    
+					                		</select>
+                                      	</div>
+                                  	</div>
+                               	</div>
+                        	</div>	
+                            <div class="form-group">
+                                <label>Link hướng dẫn sử dụng:</label>
+                                <div class="input-group">
+                                    <span class="input-group-addon">
+                                        <i class="fa fa-font"></i>
+                                    </span>
+                                    <input type="text" class="form-control" ng-model="m4"> 
+                            	</div>
+                            </div>
+                            <div class="form-group">
+                                <label>Thông tin chi tiết sản phẩm mới:</label>
+                            	<div text-angular ng-model="m5" name="modelProductDetail" required></div>	                                                        
+                            </div>	                                                    
+                            <div class="form-group">
+                                <label>Lựa chọn ảnh đại diện của sản phẩm:</label>
+                            	<input type="file" img-cropper-fileread image="i11.sourceImage" class="form-control"/>
+                            </div>
+		        			<div class="row" ng-show="i11.croppedImage!=null">
+                               	<div class="col-md-6">
+						    		<canvas width="300" height="300" id="canvas" image-cropper image="i11.sourceImage" cropped-image="i11.croppedImage" 
+						             	crop-width="300" crop-height="300" keep-aspect="true" crop-area-bounds="i12"></canvas>
+                               	</div>
+                            	<div class="col-md-6">
+                            		<img ng-src="{{i11.croppedImage}}" />
+                          		</div>
+			        		</div>
+                     	</form>
+                   	</div>
+              	</div>
+           	</div>
+            <div class="modal-footer">
+                <button type="button" data-dismiss="modal" class="btn dark">Hủy bỏ</button>
+                <button type="button" class="btn green" ng-click="cl11(m1, m2, 0, m5, m3, m4, i11.croppedImage)">Tạo Mới</button>
+            </div>
+      	</div>
+  	</div>
+</div>
+<div class="modal fade" id="md1" data-backdrop="static" data-keyboard="false">
+    <div class="modal-dialog modal-lg">
+                          <div class="modal-content">
+                              <div class="modal-header bg-blue-dark bg-font-blue-dark">
+                                  <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+                                  <h4 class="modal-title"> Sửa Đổi Thông Tin Về Sản Phẩm</h4>
+                              </div>
+                              <div class="modal-body font-blue-dark">
+                                  <div class="portlet light no-padding">
+                                   <div class="portlet-body form">
+                                       <form role="form">
+                                              <div class="form-group">
+                                                  <label>Tên sản phẩm mới:</label>
+                                                  <div class="input-group">
+                                                      <span class="input-group-addon">
+                                                          <i class="fa fa-font"></i>
+                                                      </span>
+                                                      <input type="text" class="form-control" ng-model="mu1"> 
+                                                     </div>
+                                              </div>
+                                              <div class="row">
+                                              	<div class="col-md-7">                                                    		
+                                                <div class="form-group">
+                                                    <label>Tag sản phẩm (các từ khóa tìm kiếm):</label>
+                                                    <div class="input-group">
+                                                        <span class="input-group-addon">
+                                                            <i class="fa fa-font"></i>
+                                                        </span>
+                                                        <input type="text" class="form-control" ng-model="mu2"> 
+                                                       </div>
+                                                </div>
+                                              	</div>
+                                              	<div class="col-md-5"> 
+                                                <div class="form-group">
+                                                    <label>Trạng thái sản xuất:</label>
+                                                    <div class="input-group">
+                                                        <span class="input-group-addon">
+                                                            <i class="fa fa-list"></i>
+                                                        </span>
+                                                        <select id="single" class="form-control select2" ng-options="i.l for i in o1" ng-model="mu3">
+							                    			<option></option>	                    
+							                			</select>
+                                                       </div>
+                                                </div>
+                                              	</div>
+                                              </div>	
+	                                                    <div class="form-group">
+	                                                        <label>Link hướng dẫn sử dụng:</label>
+	                                                        <div class="input-group">
+	                                                            <span class="input-group-addon">
+	                                                                <i class="fa fa-font"></i>
+	                                                            </span>
+	                                                            <input type="text" class="form-control" ng-model="mu4"> 
+                                                            </div>
+	                                                    </div>
+	                                                    <div class="form-group">
+	                                                        <label>Thông tin chi tiết sản phẩm:</label>
+                                                            <div text-angular ng-model="mu5" name="nu5" required></div>	                                                        
+	                                                    </div>
+	                                                    <div class="form-group">
+	                                                        <label>Thay đổi ảnh đại diện khác:</label>
+	                                                    	<input type="file" img-cropper-fileread image="i21.sourceImage" class="form-control"/>
+	                                                    </div>
+	                                                    <img class="img-responsive" data-ng-src="data:image/jpeg;base64,{{mu6}}" alt="" ng-hide="i21.croppedImage!=null">
+												        <div class="row" ng-show="i21.croppedImage!=null">
+	                                                    	<div class="col-md-6">
+														        <div>
+														             <canvas width="300" height="300" id="canvas" image-cropper image="i21.sourceImage" cropped-image="i21.croppedImage" 
+														             crop-width="300" crop-height="300" keep-aspect="true" crop-area-bounds="i22"></canvas>
+														        </div>
+	                                                    	</div>
+	                                                    	<div class="col-md-6">
+														        <div><img ng-src="{{i21.croppedImage}}" /></div>
+	                                                    	</div>
+												        </div>
+		                                            </form>
+		                                        </div>
+		                                    </div>
+	                                    </div>
+	                                    <div class="modal-footer">
+	                                        <button type="button" data-dismiss="modal" class="btn dark btn-outline">Hủy</button>
+	                                        <button type="button" class="btn green" ng-click="cl32(mu0, mu1, mu2, mu3, mu4, mu5, cropper.croppedImage)">Cập Nhật</button>
+	                                        <button type="button" class="btn red" data-toggle="modal" data-target="#md11">Xóa Sản Phẩm</button>
+	                                    </div>
+	                                </div>
+	                            </div>
+						  	</div>
+                            <div class="modal fade" id="md11" role="dialog" aria-hidden="true">
+							    <div class="modal-dialog modal-sm">
+	                                <div class="modal-content">
+	                                    <div class="modal-header bg-blue-dark bg-font-blue-dark">
+	                                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+	                                        <h4 class="modal-title"> Xác Nhận Xóa Sản Phẩm</h4>
+	                                    </div>
+	                                    <div class="modal-body font-blue-dark">
+	                                        <button type="button" data-dismiss="modal" class="btn dark">Hủy</button>
+	                                        <button type="button" class="btn red pull-right" ng-click="cl31(s01)">Xóa Sản Phẩm</button>
+	                                    </div>
+	                                </div>
+	                            </div>
+						  	</div>

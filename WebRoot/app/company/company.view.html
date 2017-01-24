@@ -1,0 +1,292 @@
+<div class="page-content bg-body">
+    <div class="container bg-body container-full">
+    	<div class="page-content-inner">
+	        <div class="profile">
+		    	<div class="row">
+					<div class="col-md-3 border-blue-dark">
+			            <div class="border-blue-dark margin-bottom-10" style="padding: 10px; border: 1px solid #fff;">
+				            <ul class="list-unstyled profile-nav no-margin">
+				                <li>
+				                    <img ng-src="data:image/gif;base64,{{r3.com_picture}}" class="img-responsive pic-bordered" alt="" />
+				                    <a href="" class="profile-edit" ng-click="cl1()"> chỉnh sửa </a>
+				                </li>
+				            </ul>
+				            <div class="modal fade" id="md1" tabindex="-1" role="dialog" aria-hidden="true">
+							    <div class="modal-dialog modal-lg">
+	                                <div class="modal-content">
+	                                    <div class="modal-header bg-blue-dark bg-font-blue-dark">
+	                                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+	                                        <h4 class="modal-title"> Thay Đổi Ảnh Đại Diện Của Doanh Nghiệp</h4>
+	                                    </div>
+	                                    <div class="modal-body font-blue-dark">
+	                                        <div class="portlet light no-padding">
+		                                        <div class="portlet-body form">
+		                                            <form role="form">	                                                    
+	                                                    <div class="form-group">
+	                                                        <label>Lựa chọn ảnh đại diện của Doanh Nghiệp:</label>
+	                                                    	<input type="file" img-cropper-fileread image="i11.sourceImage" class="form-control"/>
+	                                                    </div>
+	                                                    <img class="img-responsive" data-ng-src="data:image/jpeg;base64,{{mu1}}" alt="" ng-hide="i11.croppedImage!=null">
+												        <div class="row" ng-show="i11.croppedImage!=null">
+	                                                    	<div class="col-md-6">
+														        <div>
+														             <canvas width="300" height="300" id="canvas1" image-cropper image="i11.sourceImage" cropped-image="i11.croppedImage" 
+														             crop-width="300" crop-height="300" keep-aspect="true" touch-radius="30" crop-area-bounds="i12"></canvas>
+														        </div>
+	                                                    	</div>
+	                                                    	<div class="col-md-6">
+														        <div><img ng-src="{{i11.croppedImage}}" /></div>
+	                                                    	</div>
+												        </div>
+		                                            </form>
+		                                        </div>
+		                                    </div>
+	                                    </div>
+	                                    <div class="modal-footer">
+	                                        <button type="button" data-dismiss="modal" class="btn dark">Hủy bỏ</button>
+	                                        <button type="button" class="btn green" ng-click="cl11(i11.croppedImage)">Cập Nhật</button>
+	                                    </div>
+	                                </div>
+	                            </div>
+						  	</div>
+			            </div>
+			            <div class="border-blue-dark" style="padding: 10px; border: 1px solid #fff;">
+				            <h1 class="font-green sbold uppercase margin-top-0"> {{r3.com_fullname}} </h1>
+	                        <p class="margin-bottom-0"> 
+	                        	Địa Chỉ: <strong>{{r3.com_addr}}</strong>
+	                        </p>
+	                        <p class="no-margin"> 
+	                        	Điện Thoại: <strong>{{r3.com_mobile}}</strong>
+	                        </p>
+	                        <p class="no-margin"> 
+	                        	Email: <strong>{{r3.com_email}}</strong>
+	                        </p>
+	                        <p class="no-margin">
+	                            Website<a href=""> {{r3.com_website}} </a>
+	                        </p>
+	                        <p class="no-margin"> 
+	                        	Fanpage: <strong>{{r3.com_fanpage}}</strong>
+	                        </p>
+	                        <button class="btn blue btn-block btn-outline margin-top-5" ng-click="cl2()">Sửa Đổi Thông Tin</button>
+	                        <div class="modal fade" id="md2" tabindex="1" role="dialog" aria-hidden="true">
+							    <div class="modal-dialog modal-lg">
+	                                <div class="modal-content">
+	                                    <div class="modal-header bg-blue-dark bg-font-blue-dark">
+	                                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+	                                        <h4 class="modal-title"> Thay Đổi Thông Tin Của Doanh Nghiệp</h4>
+	                                    </div>
+	                                    <div class="modal-body font-blue-dark">
+	                                        <div class="portlet light no-padding">
+		                                        <div class="portlet-body form">
+		                                            <form role="form">	                                                    
+	                                                    <div class="form-group">
+	                                                        <label>Tên Doanh Nghiệp:</label>
+	                                                        <div class="input-group">
+	                                                            <span class="input-group-addon">
+	                                                                <i class="fa fa-font"></i>
+	                                                            </span>
+	                                                            <input type="text" class="form-control" ng-model="mu20"> 
+                                                            </div>
+	                                                    </div>
+	                                                    <div class="form-group">
+	                                                        <label>Địa Chỉ:</label>
+	                                                        <div class="input-group">
+	                                                            <span class="input-group-addon">
+	                                                                <i class="fa fa-font"></i>
+	                                                            </span>
+	                                                            <input type="text" class="form-control" ng-model="mu21"> 
+                                                            </div>
+	                                                    </div>
+	                                                    <div class="form-group">
+	                                                        <label>Điện Thoại:</label>
+	                                                        <div class="input-group">
+	                                                            <span class="input-group-addon">
+	                                                                <i class="fa fa-font"></i>
+	                                                            </span>
+	                                                            <input type="text" class="form-control" ng-model="mu22"> 
+                                                            </div>
+	                                                    </div>
+	                                                    <div class="form-group">
+	                                                        <label>Email:</label>
+	                                                        <div class="input-group">
+	                                                            <span class="input-group-addon">
+	                                                                <i class="fa fa-font"></i>
+	                                                            </span>
+	                                                            <input type="text" class="form-control" ng-model="mu23"> 
+                                                            </div>
+	                                                    </div>
+	                                                    <div class="form-group">
+	                                                        <label>Website:</label>
+	                                                        <div class="input-group">
+	                                                            <span class="input-group-addon">
+	                                                                <i class="fa fa-font"></i>
+	                                                            </span>
+	                                                            <input type="text" class="form-control" ng-model="mu24"> 
+                                                            </div>
+	                                                    </div>
+	                                                    <div class="form-group">
+	                                                        <label>Fanpage:</label>
+	                                                        <div class="input-group">
+	                                                            <span class="input-group-addon">
+	                                                                <i class="fa fa-font"></i>
+	                                                            </span>
+	                                                            <input type="text" class="form-control" ng-model="mu25"> 
+                                                            </div>
+	                                                    </div>
+	                                                    <div class="form-group">
+	                                                        <label>Về Doanh Nghiệp:</label>
+	                                                        <div class="input-group">
+	                                                            <span class="input-group-addon">
+	                                                                <i class="fa fa-font"></i>
+	                                                            </span>
+	                                                            <textarea type="text" class="form-control" ng-model="mu26"></textarea> 
+                                                            </div>
+	                                                    </div>
+		                                            </form>
+		                                        </div>
+		                                    </div>
+	                                    </div>
+	                                    <div class="modal-footer">
+	                                        <button type="button" data-dismiss="modal" class="btn dark">Hủy bỏ</button>
+	                                        <button type="button" class="btn green" ng-click="cl21(mu20, mu21, mu22, mu23, mu24, mu25)">Cập Nhật</button>
+	                                    </div>
+	                                </div>
+	                            </div>
+						  	</div>
+			            </div>
+			        </div>
+			        <div class="col-md-9">
+			        	<div class="portlet box blue-dark">
+			                <div class="portlet-title">
+			                    <div class="caption">
+			                        Danh Sách Nhân Viên
+		                        </div>
+			                    <div class="actions">
+			                        <a href="" class="btn btn-default btn-sm">
+			                            <i class="fa fa-pencil"></i> Tải Lại </a>
+			                        <a class="btn btn-default btn-sm" data-toggle="modal" data-target="#md3">
+			                            <i class="fa fa-plus"></i> Thêm Nhân Viên Mới </a>	
+		                            <div class="modal fade" id="md3" tabindex="1" role="dialog" aria-hidden="true">
+									    <div class="modal-dialog modal-lg">
+			                                <div class="modal-content">
+			                                    <div class="modal-header bg-blue-dark bg-font-blue-dark">
+			                                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+			                                        <h4 class="modal-title"> Thêm Nhân Viên Mới</h4>
+			                                    </div>
+			                                    <div class="modal-body font-blue-dark">
+			                                        <div class="portlet light no-padding">
+				                                        <div class="portlet-body form">
+				                                            <form role="form">	                                                    
+			                                                    <div class="form-group">
+			                                                        <label>Tìm Kiếm Nhân Viên:</label>
+			                                                        <div class="input-group">
+			                                                            <span class="input-group-addon">
+			                                                                <i class="fa fa-font"></i>
+			                                                            </span>
+			                                                            <input type="text" class="form-control" ng-model="m3" ng-change="cl3(m3)">
+			                                                            <span class="input-group-btn">
+				                                                            <button id="genpassword" class="btn btn-success" type="button" ng-click="cl3(m3)">
+				                                                                <i class="fa fa-search" /></i> Tìm Kiếm </button>
+				                                                        </span> 
+		                                                            </div>
+			                                                    </div>			                                                    
+				                                            </form>
+				                                            <table ng-table="tableParamsSearchUser" class="table">
+																<tbody ng-repeat="p in tableDisplaySearchUser">
+																	<tr id="tr{{p.usr_id}}">
+																		<td class="rowTd" data-title="'Họ tên'"   sortable="'usr_fullname'">{{p.usr_fullname}}</td>
+																		<td class="rowTd" data-title="'username'"   sortable="'usr_name'">{{p.usr_name}}</td>
+																		<td class="rowTd" data-title="'Điện thoại'"    	sortable="'usr_mobile'">{{p.usr_mobile}}</td>
+																		<td class="rowTd" data-title="'Email'" 		sortable="'usr_email'">{{p.usr_email}}</td>
+																		<td class="rowTd" >
+																		<div class="pull-right margin-right-10">
+																			<input type=button class="btn dark btn-o btn-sm" id="editRowBtn{{p.usr_id}}" value="Thêm"
+																			ng-click="cl31(p.usr_id)" ng-disabled= 'p.mem_state'>
+																			
+																		</div></td>
+																	</tr>
+																	<tr ng-show="editId===p.usr_id" ng-if="editId===p.usr_id">
+																		<td colspan="7" ng-include src="'app/components/area/editRow.html'"></td>
+																	</tr>
+																</tbody>
+															</table>
+				                                        </div>
+				                                    </div>
+			                                    </div>
+			                                    <div class="modal-footer">
+			                                        <button type="button" data-dismiss="modal" class="btn dark">Hủy bỏ</button>
+			                                    </div>
+			                                </div>
+			                            </div>
+								  	</div>	                            
+			                    </div>
+			                </div>
+			                <div class="portlet-body bg-body">
+								<table ng-table="tableParamsUserType" class="table">
+									<tbody ng-repeat="p in tableDisplayUserType">
+										<tr id="tr{{p.mem_id}}">
+											<td class="rowTd" data-title="'Họ tên'"   sortable="'mem_fullname'">{{p.mem_fullname}}</td>
+											<td class="rowTd" data-title="'Username'"   sortable="'mem_name'">{{p.mem_name}}</td>
+											<td class="rowTd" data-title="'Cấp bậc'"    	sortable="'mem_type'">{{p.mem_type}}</td>
+											<td class="rowTd" data-title="'Email'" 		sortable=false>{{p.mem_email}}</td>
+											<td class="rowTd" data-title="'Điện thoại'"     sortable=false>{{p.mem_mobile}}</td>
+											<td class="rowTd" >
+											<div class="pull-right margin-right-10">
+												<input type=button class="btn dark btn-o btn-sm" id="editRowBtn{{p.mem_id}}" value="Sửa thông tin"
+												ng-click="cl32(p.mem_id, p.mem_type)" ng-if="(r3.mem_type==1) && r3.mem_type < p.mem_type">
+												<input type=button class="btn red btn-o btn-sm" id="editRowBtn{{p.mem_id}}" value="Xóa"
+												ng-click="cl33(p.mem_id)" ng-if="r3.mem_type==1">
+											</div></td>
+										</tr>
+										<tr ng-show="editId===p.mem_id" ng-if="editId===p.mem_id">
+											<td colspan="7" ng-include src="'app/company/editRow.html'"></td>
+										</tr>
+									</tbody>
+								</table>
+								<div class="modal fade" id="md4" tabindex="-1" role="dialog" aria-hidden="true">
+								    <div class="modal-dialog modal-sm">
+		                                <div class="modal-content">
+		                                    <div class="modal-header bg-blue-dark bg-font-blue-dark">
+		                                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+		                                        <h4 class="modal-title"> Xác Nhận Xóa Nhân Viên</h4>
+		                                    </div>
+		                                    <div class="modal-body font-blue-dark">
+		                                        <button type="button" data-dismiss="modal" class="btn dark">Hủy</button>
+		                                        <button type="button" class="btn red pull-right" ng-click="cl34(m33)">Xóa Nhân Viên</button>
+		                                    </div>
+		                                </div>
+		                            </div>
+							  	</div>
+								<div class="modal fade" id="md5" tabindex="-1" role="dialog" aria-hidden="true">
+								    <div class="modal-dialog modal-sm">
+		                                <div class="modal-content">
+		                                    <div class="modal-header bg-blue-dark bg-font-blue-dark">
+		                                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+		                                        <h4 class="modal-title"> Thay Đổi Quyền Hạn Nhân Viên</h4>
+		                                    </div>
+		                                    <div class="modal-body font-blue-dark">
+		                                    	<form role="form">	                                                    
+                                                    <div class="form-group">
+                                                        <label>Loại Quyền Hạn:</label>
+                                                        <div class="input-group">
+                                                            <span class="input-group-addon">
+                                                                <i class="fa fa-number"></i>
+                                                            </span>
+                                                            <input type="number" class="form-control" ng-model="m35">
+                                                           </div>
+                                                    </div>			                                                    
+	                                            </form>
+		                                        <button type="button" data-dismiss="modal" class="btn dark">Hủy</button>
+		                                        <button type="button" class="btn red pull-right" ng-click="cl35(m350, m35)">Cập Nhật</button>
+		                                    </div>
+		                                </div>
+		                            </div>
+							  	</div>
+			                </div>
+						</div>    
+			        </div>
+				</div>
+	        </div>
+    	</div>
+    </div>
+</div>

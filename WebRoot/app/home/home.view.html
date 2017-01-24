@@ -1,0 +1,174 @@
+<div class="page-content bg-body">
+    <div class="container bg-body container-full">
+    	<div class="row">
+			<div class="col-md-3">
+				<div class="form-group">								
+					<label>
+						Sản Phẩm:
+					</label>
+					<div class="input-group">
+						<span class="input-group-addon"> <i class="fa fa-list-ol font-blue-dark"></i> </span>
+						<select class="form-control" ng-options="i.pro_name for i in o01" 
+						ng-model="m01" ng-change="ch01(m01)">
+						</select>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-3">
+				<div class="form-group">
+					<label>
+						Lô hàng:
+					</label>
+					<div class="input-group">
+						<span class="input-group-addon"> <i class="fa fa-list-ol font-blue-dark"></i> </span>
+						<select class="form-control" ng-options="i.bat_name for i in o02" 
+						ng-model="m02" ng-change="ch02(m02, m03, m04)">
+						</select>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-4">
+				<div class="form-group">
+					<label>
+						Thời gian:
+					</label>
+					<div class="input-group">												
+					 	<input class="form-control form-control-inline date-picker" type="text" name="n03" ng-model="m03" 
+                        	data-date-format="yyyy/mm/dd"/>
+						<span class="input-group-addon">Đến</span>
+						<input class="form-control form-control-inline date-picker" type="text" name="n04" ng-model="m04"
+			            	data-date-format="yyyy/mm/dd"/>
+					</div>
+				</div>
+			</div>									
+			<div class="col-md-2">
+				<div class="form-group">
+					<label>
+					&nbsp;
+					</label>
+					<button type="button" class="btn btn-squared form-control blue-dark" ladda="laddaRefresh" data-style="expand-right"
+						ng-click="cl01(m02, m03, m04)">
+						<i class="fa fa-spinner fa-spin" ng-if="l1"></i>
+						Tải lại
+					</button>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-12">
+				<div class="portlet box blue-dark">
+	                <div class="portlet-body bg-body">
+						<div id="Highchart-11"></div>
+	                </div>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-5">
+				<div class="portlet box blue-dark">
+	                <div class="portlet-title">
+	                    <div class="caption">
+	                        <i class="fa fa-gift"></i> NHẮN TIN </div>
+	                    <div class="actions">
+	                        <a href="" class="btn btn-default btn-sm">
+	                            <i class="fa fa-refresh"></i> Tải Lại</a>
+	                        
+	                    </div>
+	                </div>
+	                <div class="portlet-body bg-body">
+						<table ng-table="tableParamsSMS" class="table fadeInDown animated">
+							<tr ng-repeat="p in tableDisplaySMS">								
+								<td class="rowTd" data-title="'Tên sản Phẩm'"   sortable="'product_name'">{{p.product_name}}</td>
+								<!-- <td class="center" data-title="'Tên lô hàng'"   sortable="'pro_battotal'">{{p.pro_batchtotal}}</td> -->
+								<td class="center" data-title="'Mã'"   sortable="'sms_code'"> {{p.sms_code}}</td>
+								<td class="center" data-title="'Số Điện Thoại'"   sortable="'sms_receiver'"> {{p.sms_receiver}}</td>
+								<td class="center" data-title="'Thời Gian Nhắn Tin'"   sortable="'sms_time'"> {{p.sms_time}}</td>
+							</tr>
+						</table>
+	                </div>
+				</div>
+			</div>	
+			<div class="col-md-7">
+				<div class="portlet box blue-dark">
+	                <div class="portlet-title">
+	                    <div class="caption">
+	                        <i class="fa fa-gift"></i> LƯỢT QUÉT SẢN PHẨM THEO VỊ TRÍ
+                        </div>	                    
+	                </div>
+	                <div class="portlet-body bg-body">
+	                    <table ng-table="tableParamsLocation" class="table fadeInDown animated">
+							<tr ng-repeat="p in tableDisplayLocation">								
+								<td class="rowTd" data-title="'Tỉnh / Thành Phố'"   sortable="'loc_region'">{{p.loc_region}}</td>
+								<td class="center" data-title="'Khu Vực'"   sortable="'loc_city'">{{p.loc_city}}</td>
+								<td class="center" data-title="'Lượt Quét'"   sortable="'loc_count'"> {{p.loc_count}}</td>
+							</tr>
+						</table>
+	                </div>
+                </div>
+				<div class="portlet box blue-dark">
+	                <div class="portlet-title">
+	                    <div class="caption">
+	                        <i class="fa fa-gift"></i> TÌM KIẾM LỊCH SỬ NHẮN TIN THEO MÃ SẢN PHẨM
+                        </div>	                    
+	                </div>
+	                <div class="portlet-body bg-body">
+	                	<form role="form">	                                                    
+                           	<div class="form-group">
+                               	<label>Lịch sử truy vấn mã sản phẩm:</label>
+                               	<div class="input-group">
+                                   	<span class="input-group-addon">
+                                       	<i class="fa fa-font"></i>
+                                   	</span>
+                                   	<input type="text" class="form-control" ng-model="m30">
+                                   	<span class="input-group-btn">
+                                    	<button id="genpassword" class="btn btn-success" type="button" ng-click="cl30(m30)">
+                                        <i class="fa fa-search" /></i> Tìm Kiếm </button>
+                               		</span> 
+                            	</div>
+                           	</div>			                                                    
+	                    </form>
+	                    <table ng-table="tableParamsHistory" class="table fadeInDown animated">
+							<tr ng-repeat="p in tableDisplayHistory">								
+								<td class="rowTd" data-title="'Tên sản Phẩm'"   sortable="'product_name'">{{p.product_name}}</td>
+								<td class="center" data-title="'Tên lô hàng'"   sortable="'batch_name'">{{p.batch_name}}</td>
+								<td class="center" data-title="'Khu Vực'"   sortable="'region'"> {{p.region}}</td>
+								<td class="center" data-title="'Thời Gian Nhắn Tin'"   sortable="'sms_time'"> {{p.sms_time}}</td>
+							</tr>
+						</table>
+	                </div>
+                </div>
+				<div class="portlet box blue-dark">
+	                <div class="portlet-title">
+	                    <div class="caption">
+	                        <i class="fa fa-gift"></i> TÌM KIẾM LỊCH SỬ NHẮN TIN THEO SỐ ĐIỆN THOẠI
+                        </div>	                    
+	                </div>
+	                <div class="portlet-body bg-body">
+	                	<form role="form">	                                                    
+                           	<div class="form-group">
+                               	<label>Nhập số điện thoại:</label>
+                               	<div class="input-group">
+                                   	<span class="input-group-addon">
+                                       	<i class="fa fa-font"></i>
+                                   	</span>
+                                   	<input type="text" class="form-control" ng-model="m31">
+                                   	<span class="input-group-btn">
+                                    	<button id="genpassword" class="btn btn-success" type="button" ng-click="cl31(m31)">
+                                        <i class="fa fa-search" /></i> Tìm Kiếm </button>
+                               		</span> 
+                            	</div>
+                           	</div>			                                                    
+	                    </form>
+	                    <table ng-table="tableParamsSearchSMS" class="table fadeInDown animated">
+							<tr ng-repeat="p in tableDisplaySearchSMS">								
+								<td class="rowTd" data-title="'Tên sản Phẩm'"   sortable="'sms_product'">{{p.sms_product}}</td>
+								<td class="center" data-title="'Tên lô hàng'"   sortable="'sms_batch'">{{p.sms_batch}}</td>
+								<td class="center" data-title="'Thời Gian Nhắn Tin'"   sortable="'sms_time'"> {{p.sms_time}}</td>
+							</tr>
+						</table>
+	                </div>
+                </div>
+        	</div>			
+		</div>
+    </div>
+</div>

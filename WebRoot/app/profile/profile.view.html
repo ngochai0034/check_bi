@@ -1,0 +1,165 @@
+<div class="page-content bg-body">
+    <div class="container bg-body container-full">
+    	<div class="page-content-inner">
+    		<div class="profile">
+		    	<div class="row">
+		    		<div class="col-md-3 border-blue-dark">
+		    			<div class="border-blue-dark margin-bottom-10" style="padding: 10px; border: 1px solid #fff;">
+				            <ul class="list-unstyled profile-nav no-margin">
+				                <li>
+				                    <img ng-src="data:image/gif;base64,{{r1.usr_picture}}" class="img-responsive pic-bordered" alt="" />
+				                    <a href="" class="profile-edit" ng-click="cl1()"> chỉnh sửa </a>
+				                </li>
+				            </ul>
+				            <div class="modal fade" id="md1" role="dialog">
+							    <div class="modal-dialog modal-lg">
+	                                <div class="modal-content">
+	                                    <div class="modal-header bg-blue-dark bg-font-blue-dark">
+	                                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+	                                        <h4 class="modal-title"> Thay Đổi Ảnh Đại Diện Của Cá Nhân</h4>
+	                                    </div>
+	                                    <div class="modal-body font-blue-dark">
+	                                        <div class="portlet light no-padding">
+		                                        <div class="portlet-body form">
+		                                            <form role="form">	                                                    
+	                                                    <div class="form-group">
+	                                                        <label>Lựa chọn ảnh đại diện của Cá Nhân:</label>
+	                                                    	<input type="file" name="n10" img-cropper-fileread image="i11.sourceImage" class="form-control"/>
+	                                                    </div>
+	                                                    <img class="img-responsive" data-ng-src="data:image/jpeg;base64,{{mu1}}" alt="" ng-hide="i11.croppedImage!=null">
+												        <div class="row" ng-show="i11.croppedImage!=null">
+	                                                    	<div class="col-md-6">
+														        <div>
+														             <canvas width="300" height="300" id="canvas1" image-cropper image="i11.sourceImage" cropped-image="i11.croppedImage" 
+														             crop-width="300" crop-height="300" keep-aspect="true" touch-radius="30" crop-area-bounds="i12"></canvas>
+														        </div>
+	                                                    	</div>
+	                                                    	<div class="col-md-6">
+														        <div><img ng-src="{{i11.croppedImage}}" /></div>
+	                                                    	</div>
+												        </div>
+		                                            </form>
+		                                        </div>
+		                                    </div>
+	                                    </div>
+	                                    <div class="modal-footer">
+	                                        <button type="button" data-dismiss="modal" class="btn dark">Hủy bỏ</button>
+	                                        <button type="button" class="btn green" ng-click="cl11(i11.croppedImage)">Cập Nhật</button>
+	                                    </div>
+	                                </div>
+	                            </div>
+						  	</div>
+			            </div>
+			            <div class="border-blue-dark" style="padding: 10px; border: 1px solid #fff;">
+				            <h1 class="font-green sbold uppercase margin-top-0 text-center"> {{r1.usr_fullname}} </h1>
+	                        <p class="margin-bottom-0"> 
+	                        	Mobile: <strong>{{r1.usr_mobile}}</strong>
+	                        </p>
+	                        <p class="no-margin"> 
+	                        	Email: <strong>{{r1.usr_email}}</strong>
+	                        </p>
+	                        
+	                        <button class="btn blue btn-block btn-outline margin-top-5" ng-click="cl2()">Sửa Đổi Thông Tin</button>
+	                        <div class="modal fade" id="md2" role="dialog">
+							    <div class="modal-dialog modal-lg">
+	                                <div class="modal-content">
+	                                    <div class="modal-header bg-blue-dark bg-font-blue-dark">
+	                                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+	                                        <h4 class="modal-title"> Thay Đổi Thông Tin Của Cá Nhân</h4>
+	                                    </div>
+	                                    <div class="modal-body font-blue-dark">
+	                                        <div class="portlet light no-padding">
+		                                        <div class="portlet-body form">
+		                                            <form role="form">	                                                    
+	                                                    <div class="form-group">
+	                                                        <label>Tên Đầy Đủ:</label>
+	                                                        <div class="input-group">
+	                                                            <span class="input-group-addon">
+	                                                                <i class="fa fa-font"></i>
+	                                                            </span>
+	                                                            <input type="text" class="form-control" ng-model="mu20"> 
+                                                            </div>
+	                                                    </div>
+	                                                    <div class="form-group">
+	                                                        <label>Điện Thoại:</label>
+	                                                        <div class="input-group">
+	                                                            <span class="input-group-addon">
+	                                                                <i class="fa fa-font"></i>
+	                                                            </span>
+	                                                            <input type="text" class="form-control" ng-model="mu21"> 
+                                                            </div>
+	                                                    </div>
+	                                                    <div class="form-group">
+	                                                        <label>Email:</label>
+	                                                        <div class="input-group">
+	                                                            <span class="input-group-addon">
+	                                                                <i class="fa fa-font"></i>
+	                                                            </span>
+	                                                            <input type="text" class="form-control" ng-model="mu22"> 
+                                                            </div>
+	                                                    </div>	                                                                                                        
+		                                            </form>
+		                                        </div>
+		                                    </div>
+	                                    </div>
+	                                    <div class="modal-footer">
+	                                        <button type="button" data-dismiss="modal" class="btn dark">Hủy bỏ</button>
+	                                        <button type="button" class="btn green" ng-click="cl21(mu20, mu21, mu22)">Cập Nhật</button>
+	                                    </div>
+	                                </div>
+	                            </div>
+						  	</div>
+			            </div>
+		    		</div>
+		    		<div class="col-md-9">
+			        	<div class="portlet box blue-dark">
+			        		<div class="portlet-title">
+			        			<div class="caption">
+			                        Thay Đổi Mật Khẩu
+		                        </div>
+		                        <div class="actions">
+		                        	
+		                        </div>			        			
+			        		</div>
+			        		<div class="portlet-body bg-body">
+			        			<form role="form" name=fm1>
+			        				<div class="form-group">
+	                                    <label>Mật khẩu cũ:</label>
+	                                    <div class="input-group">
+	                                        <span class="input-group-addon">
+	                                            <i class="fa fa-font"></i>
+	                                        </span>
+	                                        <div class="input-icon right">
+		                                        <input type="password" class="form-control" ng-model="mu30" name="nu30" required> 
+		                                        <i class="fa fa-warning" ng-show="fm1.nu30.$error.required"></i>
+	                                        </div>
+	                                       </div>
+	                                </div>
+	                                <div class="form-group">
+	                                    <label>Mật khẩu mới:</label>
+	                                    <div class="input-group">
+	                                        <span class="input-group-addon">
+	                                            <i class="fa fa-font"></i>
+	                                        </span>
+	                                        <input type="password" class="form-control" ng-model="mu31"> 
+	                                       </div>
+	                                </div>
+	                                <div class="form-group">
+	                                    <label>Nhập lại mật khẩu mới:</label>
+	                                    <div class="input-group">
+	                                        <span class="input-group-addon">
+	                                            <i class="fa fa-font"></i>
+	                                        </span>
+	                                        <input type="password" class="form-control" ng-model="mu32"> 
+	                                       </div>
+	                                </div>
+	                                <button type="button" class="btn blue-madison btn-block" ng-click="cl30(mu30, mu31, mu32)">Cập Nhật</button>
+			        			</form>
+			        		</div>			        			
+			        	</div>
+		    		</div>
+		    	</div>
+    		</div>
+    	</div>
+    </div>
+</div>

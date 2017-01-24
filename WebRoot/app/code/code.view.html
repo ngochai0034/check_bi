@@ -1,0 +1,543 @@
+<div class="page-content bg-body">
+    <div class="container bg-body container-full">
+    	<div class="row hidden-print">
+			<div class="col-md-12">
+				<div class="portlet box blue-dark">
+	                <div class="portlet-title">
+	                    <div class="caption">
+	                        <i class="fa fa-gift"></i> Danh Sách Các File Mã </div>
+	                    <div class="actions">
+	                        <a class="btn btn-default btn-sm" ng-click="cl1(1)">
+	                            <i class="fa fa-pencil"ng-if="!l01"></i><i class="fa fa-spinner fa-spin" ng-if="l01"></i> Tải Lại </a>
+	                        <a class="btn btn-default btn-sm" ng-click="cl11()">
+	                            <i class="fa fa-plus"></i> Tạo File Mã Mới </a>
+                            
+	                    </div>
+	                </div>
+	                <div class="portlet-body bg-body">
+						<table ng-table="tableParamsCode" class="table">
+							<tr ng-repeat="p in tableDisplayCode">
+								<td class="rowTd">
+									<a type=button class="btn btn-outline btn-sm c-btn-border-1x c-btn-blue-dark"
+										ng-click="cl12(p)">
+										<i class="fa fa-check" ng-if="s11==p.cod_id"></i>
+										<i class="fa fa-circle-o" ng-if="s11!=p.cod_id"></i>
+									</a>
+								</td>
+								<td class="rowTd" data-title="'Tên file mã'"   				sortable="'cod_file'">{{p.cod_file}}</td>
+								<td class="rowTd" data-title="'Loại tem/mã'"   				sortable="'cod_type'">
+									<div ng-if="p.cod_type == 0">
+						          		<span class="label label-sm label-success">Mã thường</span>									          		
+						          		<span class="label label-sm label-default" ng-if="p.code_serial==1">Có Serial</span>									          		
+							    	</div>
+							    	<div ng-if="p.cod_type == 1">
+						          		<span class="label label-sm label-danger">Mã tự hủy</span>									          		
+						          		<span class="label label-sm label-default" ng-if="p.code_serial==1">Có Serial</span>									          		
+							    	</div>
+							    	<div ng-if="p.cod_type == 2">
+						          		<span class="label label-sm label-info">Mã thông tin</span>									          		
+						          		<span class="label label-sm label-default" ng-if="p.code_serial==1">Có Serial</span>									          		
+							    	</div>
+							    	<div ng-if="p.cod_type == 3">
+						          		<span class="label label-sm label-info">Mã nhắn tin</span>									          		
+						          		<span class="label label-sm label-default" ng-if="p.code_serial==1">Có Serial</span>									          		
+							    	</div>
+								</td>
+								<td class="rowTd" data-title="'Ngày tạo'"   	sortable="'code_date'">{{p.code_date}}</td>
+								<td class="rowTd" data-title="'Kích hoạt/Tổng số'" 	sortable="'cod_amou'">{{p.cod_activated}} / {{p.cod_amount}}</td>
+								
+								<td>
+									<div class="pull-right margin-right-10">										
+										<a  class="btn btn-success btn-o btn-sm" ng-if="r3.mem_type <= 2"
+											href="https://api.ezcheck.vn/check_v2.1_service_code/rest/getfile/{{r3.com_id}}/{{p.cod_file}}">
+											Tải file mã (*.csv)
+										</a>	
+									</div>
+								</td>
+							</tr>
+						</table>
+	                </div>
+				</div>
+			</div>
+		</div>
+    	<div class="row hidden-print" ng-show="bl1">
+			<div class="col-md-9">
+				<div class="portlet box blue-dark">
+	                <div class="portlet-title tabbable-line padding-top-0">
+	                    <div class="caption">
+	                        <i class="icon-share"></i>
+	                        <span class="caption-subject">{{s1.cod_file}}</span>
+	                    </div>
+	                    <ul class="nav nav-tabs">
+	                        <li class="active">
+	                            <a href="" data-toggle="tab"  aria-expanded="true" ng-click="cl21(s1)"> Thông Tin Chi Tiết </a>
+	                        </li>
+	                        <li class="">
+	                            <a href="" data-toggle="tab"  aria-expanded="false" ng-click="cl22(s1)"> In Tem </a>
+	                        </li>
+	                        <li class="">
+	                            <a href="" data-toggle="tab"  aria-expanded="false" ng-click="cl23(s1)"> Lịch Sử Truy Cập </a>
+	                        </li>
+	                    </ul>
+	                </div>
+	                <div class="portlet-body">
+	                    <div class="tab-content">
+	                        <div class="row" id="portlet_tab1" ng-show="sh1">
+	                        	<div class="col-md-12">
+		                            <table class="table" id="">
+										<thead>
+											<tr>
+												<th>Loại tem/mã</th>
+												<th>Ngày tạo</th>
+												<th>Nhân viên tạo</th>
+												<th>Tổng số</th>
+												<th></th>
+											</tr>
+										</thead>
+										<tbody>
+											<tr>
+												<td>
+													<div ng-if="s1.cod_type == 0">
+										          		<span class="label label-sm label-success">Mã thường</span>									          		
+											    	</div>
+											    	<div ng-if="s1.cod_type == 1">
+										          		<span class="label label-sm label-danger">Mã tự hủy</span>									          		
+											    	</div>
+											    	<div ng-if="s1.cod_type == 2">
+										          		<span class="label label-sm label-info">Mã thông tin</span>									          		
+											    	</div>
+											    	<div ng-if="s1.cod_type == 3">
+										          		<span class="label label-sm label-info">Mã Nhắn Tin</span>									          		
+											    	</div>
+												</td>
+												<td>{{s1.code_date}}</td>
+												<td>{{s1.usr_fullname}}</td>
+												<td>{{s1.cod_activated}}/{{s1.cod_amount}}</td>
+												<td>
+													<div class="pull-right margin-right-10">
+														<button type="button" class="btn green btn-sm btn-outline"
+														ng-click="cl2130()" ng-if="s1.cod_activated<s1.cod_amount">Active File</button>
+														<button type="button" class="btn dark btn-sm btn-outline" 
+														data-toggle="modal" data-target="#md11"
+														ng-if="r3.mem_type==1">Xóa File</button>
+													</div>
+												</td>
+											</tr>
+										</tbody>
+									</table>
+									<p>{{s1.code_description}}</p>
+									<hr>
+									<table ng-table="tableParamsBatch" class="table" id="tb220">
+										<tr ng-repeat="p in tableDisplayBatch">
+											<td class="" data-title="'Tên sản phẩm'"   sortable="'pro_name'">{{p.pro_name}}</td>											
+											<td class="rowTd" data-title="'Tên lô hàng'"   	sortable="'bat_name'">{{p.bat_name}}</td>
+											<td class="rowTd" data-title="'Ngày Active'" 	sortable="'act_date'">{{p.act_date}}</td>
+											<td class="rowTd" data-title="'Chuỗi Serial bắt đầu'" 	sortable="'ser_from'">{{p.ser_from}}</td>
+											<td class="rowTd" data-title="'Chuỗi Serial kết thúc'" 	sortable="'ser_to'">{{p.ser_to}}</td>
+										</tr>
+									</table>
+									<hr ng-show="bl213">
+									<div class="portlet-body form" ng-show="bl213" ng-init="bl213=false">
+	                                    <form class="form-horizontal" role="form">
+	                                        <div class="form-body">
+	                                        	<div class="form-group">
+	                                                <label class="col-md-2 control-label">Sản Phẩm</label>
+	                                                <div class="col-md-10">
+	                                                    <div class="input-group">
+	                                                        <span class="input-group-addon">
+	                                                            <i class="fa fa-list"></i>
+	                                                        </span>
+	                                                        <select id="single" class="form-control select2"
+												                ng-options="i.pro_name for i in o213" ng-model="m213" ng-change="cl213(m213)">
+												                    <option></option>	                    
+											                </select>
+                                                        </div>
+	                                                </div>
+	                                            </div>
+	                                        	<div class="form-group" ng-show="bl214" ng-init="bl214=false">
+	                                                <label class="col-md-2 control-label">Lô Hàng</label>
+	                                                <div class="col-md-10">
+	                                                    <div class="input-group">
+	                                                        <span class="input-group-addon">
+	                                                            <i class="fa fa-list"></i>
+	                                                        </span>
+	                                                        <select id="single" class="form-control select2"
+												                ng-options="i.bat_name for i in o214" ng-model="m214" ng-change="cl214(m214)">
+												                    <option></option>	                    
+											                </select>
+                                                        </div>
+	                                                </div>
+	                                            </div>
+	                                        	<div class="form-group" ng-show="bl215" ng-init="bl215=false">
+	                                                <label class="col-md-2 control-label">File Mã</label>
+	                                                <div class="col-md-10">
+	                                                    <div class="input-group">
+	                                                        <span class="input-group-addon">
+	                                                            <i class="fa fa-list"></i>
+	                                                        </span>
+	                                                        <input type="text" class="form-control" name="n215" ng-disabled="true" ng-model="m215" required>
+                                                        </div>
+	                                                </div>
+	                                            </div>
+	                                            
+	                                        </div>
+	                                    </form>
+	                                    <div class="row" ng-show="bl215">
+                                           	<div class="col-md-12">
+												<div class="checkbox">
+                                                    <label>
+                                                        <input type="checkbox" id="checkbox6" ng-model="m216" ng-init="m216=false"> Active trong dải serial </label>
+                                                </div>
+											</div>
+                                      	</div>
+                                        <div class="row" ng-show="m216" ng-init="m216=false">
+                                           	<div class="col-md-6">
+                                           		<form role="form" name="fm1">
+	                                            	<div class="form-group">
+                                                        <label> Nhập chuỗi serial bắt đầu: <span class="required"> * </span></label>
+                                                        <div class="input-group">
+                                                            <span class="input-group-addon">
+                                                                <i class="fa fa-sort-numeric-asc font-blue-dark"></i>
+                                                            </span>
+                                                            <div class="input-icon right">
+                                                                <i class="fa fa-check font-green-jungle" ng-hide="fm1.n217.$error.required"></i> 
+                                                                <i class="fa fa-warning font-red" ng-show="fm1.n217.$error.required"></i> 
+                                                            	<input type="text" class="form-control" ng-model="m217" ng-init="m217=1" name="n217" required> 
+                                                             		</div>
+                                                          	</div>
+                                                    </div>
+                                           		</form>
+                                           	</div>
+                                           	<div class="col-md-6">
+                                           		<form role="form" name="fm1">
+	                                            	<div class="form-group">
+                                                        <label> Nhập chuỗi serial kết thúc: <span class="required"> * </span></label>
+                                                        <div class="input-group">
+                                                            <span class="input-group-addon">
+                                                                <i class="fa fa-sort-numeric-asc font-blue-dark"></i>
+                                                            </span>
+                                                            <div class="input-icon right">
+                                                                <i class="fa fa-check font-green-jungle" ng-hide="fm1.n218.$error.required"></i> 
+                                                                <i class="fa fa-warning font-red" ng-show="fm1.n218.$error.required"></i> 
+                                                            	<input type="text" class="form-control" ng-model="m218" ng-init="m218=1" name="n218" required> 
+                                                            </div>
+                                                    	</div>
+                                                    </div>
+                                           		</form>
+                                           	</div>
+                                      	</div>
+                                        <div class="row">
+                                           	<div class="col-md-4">
+	                                            <button type="button" class="btn grey-mint btn-sm btn-block" ng-show="bl215" ng-click="bl213=false">Hủy bỏ</button>
+                                           	</div>
+                                           	<div class="col-md-8">
+	                                            <button type="button" class="btn btn-danger btn-sm btn-block" ng-show="bl215" data-toggle="modal" data-target="#md12" >Tất Cả Mã</button>
+                                           	</div>
+                                        </div>
+									</div>										                            
+	                        	</div>
+	                        </div>
+	                        <div class="row hidden-print" id="portlet_tab2" ng-show="sh2">
+	                        	<div class="col-md-12">
+		                            <form class="form-horizontal" role="form">
+                                        <div class="form-body">
+                                        	<div class="form-group">
+                                                <label class="col-md-2 control-label">Sản Phẩm</label>
+                                                <div class="col-md-10">
+                                                    <div class="input-group">
+                                                        <span class="input-group-addon">
+                                                            <i class="fa fa-list"></i>
+                                                        </span>
+                                                        <select id="single" class="form-control select2"
+											                ng-options="i.pro_name for i in o213" ng-model="m213" ng-change="cl213(m213)">
+											                    <option></option>	                    
+										                </select>
+                                                       </div>
+                                                </div>
+                                            </div>
+                                        	<div class="form-group" ng-show="bl214" ng-init="bl214=false">
+                                                <label class="col-md-2 control-label">Lô Hàng</label>
+                                                <div class="col-md-10">
+                                                    <div class="input-group">
+                                                        <span class="input-group-addon">
+                                                            <i class="fa fa-list"></i>
+                                                        </span>
+                                                        <select id="single" class="form-control select2"
+											                ng-options="i.bat_name for i in o214" ng-model="m214" ng-change="cl214(m214)">
+											                    <option></option>	                    
+										                </select>
+                                                       </div>
+                                                </div>
+                                            </div>
+                                        	<div class="form-group" ng-show="bl215" ng-init="bl215=false">
+                                                <label class="col-md-2 control-label">File Mã</label>
+                                                <div class="col-md-10">
+                                                    <div class="input-group">
+                                                        <span class="input-group-addon">
+                                                            <i class="fa fa-list"></i>
+                                                        </span>
+                                                        <input type="text" class="form-control" name="n215" ng-disabled="true" ng-model="m215" required>
+                                                       </div>
+                                                </div>
+                                            </div>
+                                            <div class="form-group" ng-show="bl215">
+                                                <label class="col-md-2 control-label">Loại Tem</label>
+                                                <div class="col-md-10">
+                                                    <div class="input-group">
+                                                        <span class="input-group-addon">
+                                                            <i class="fa fa-list"></i>
+                                                        </span>
+                                                        <select id="single" class="form-control select2"
+											                ng-options="i.n for i in o216" ng-model="m216" ng-change="cl216(m213, m214, s1, m216)">
+											                    <option></option>	                    
+										                </select>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="form-group" ng-show="bl2151">
+                                                <label class="col-md-4 control-label">Tên Doanh Nghiệp</label>
+                                                <div class="col-md-8">
+                                                    <div class="input-group">
+                                                        <span class="input-group-addon">
+                                                            <i class="fa fa-font"></i>
+                                                        </span>
+                                                        <input type="text" class="form-control" name="n2151" ng-model="m2151" required>
+                                                        <span class="input-group-btn">
+                                                            <button id="genpassword" class="btn btn-success" type="button" ng-click="cl2151(m213, m214, s1, m216, m2151)">
+                                                                <i class="fa fa-refresh" /></i> Tải Lại </button>
+                                                        </span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="form-group" ng-show="bl2152">
+                                                <label class="col-md-4 control-label">Ảnh Đại Diện Của Doanh Nghiệp</label>
+                                                <div class="col-md-8">
+                                                    <div class="input-group">
+                                                        <span class="input-group-addon">
+                                                            <i class="fa fa-file"></i>
+                                                        </span>
+		                                            	<input type="file" img-cropper-fileread image="m2152.sourceImage" class="form-control"/>
+		                                            	<span class="input-group-btn">
+                                                            <button id="genpassword" class="btn btn-success" type="button" ng-click="cl2151(m213, m214, s1, m216, r3, m2152.croppedImage)">
+                                                                <i class="fa fa-refresh" /></i> Tải Lại </button>
+                                                        </span>
+                                                    </div>
+                                                </div>
+                                            </div>
+									        <div class="row" ng-show="m2152.croppedImage!=null">
+                                                <div class="col-md-6">
+										        	<div>
+											             <canvas width="300" height="300" id="canvas1" image-cropper image="m2152.sourceImage" cropped-image="m2152.croppedImage" 
+											             crop-width="300" crop-height="90" keep-aspect="true" touch-radius="30" crop-area-bounds="i12"></canvas>
+											        </div>
+                                                </div>
+                                                <div class="col-md-6">
+											        <div><img ng-src="{{m2152.croppedImage}}" /></div>
+                                                </div>
+									        </div>
+                                        </div>
+                                        <div class="row">
+                                           	<div class="col-md-4">
+	                                            <button type="button" class="btn grey-mint btn-sm btn-block" ng-show="bl216" ng-click="">Hủy bỏ</button>
+                                           	</div>
+                                           	<div class="col-md-8">
+	                                            <button type="button" class="btn btn-danger btn-sm btn-block" ng-show="bl216" ng-click="cl217()">In Tem</button>
+                                           	</div>
+                                        </div>
+                                    </form>
+	                        	</div>	                            
+	                        </div>
+	                        <div class="row" id="portlet_tab3" ng-show="sh3">
+	                        	<div class="col-md-12">
+		                            <p> Ut wisi enve et iustaugue duis dolore te feugait nulla facilisi. </p>
+	                        	</div>	                            
+	                        </div>
+	                    </div>
+	                </div>
+	            </div>
+			</div>
+			<div class="col-md-3">
+				<div class="portlet box blue-dark">
+	                <div class="portlet-title tabbable-line padding-top-0">
+	                    <div class="caption">
+	                        <i class="icon-share"></i>
+	                        <span class="caption-subject">Kích hoạt tem</span>
+	                    </div>	                    
+	                </div>
+	                <div class="portlet-body">
+	                    <form role="form" name="fm2" ng-submit="s20(m20, m21, m22, m23, m24)">	                                                    
+                           	<div class="form-group" ng-show="m20">
+                               	<label>Tên sản phẩm:</label>
+                               	<div class="input-group">
+                                   	<span class="input-group-addon">
+                                       	<i class="fa fa-qrcode"></i>
+                                   	</span>
+                                   	<input type="text" class="form-control" ng-model="m20.pro_name" name="n20" ng-disabled="true" required>
+                            	</div>
+                           	</div>			                                                    
+                           	<div class="form-group" ng-show="m21">
+                               	<label>Tên lô hàng:</label>
+                               	<div class="input-group">
+                                   	<span class="input-group-addon">
+                                       	<i class="fa fa-qrcode"></i>
+                                   	</span>
+                                   	<input type="text" class="form-control" ng-model="m21.bat_name" name="n21" ng-disabled="true" required>
+                            	</div>
+                           	</div>		
+                           	<div class="row" ng-show="m21.bat_name">
+                           		<div class="col-md-6">
+		                           	<div class="form-group">
+		                               	<label>Serial bắt đầu: (vd 0000001)</label>
+		                               	<div class="input-group">
+		                                   	<span class="input-group-addon">
+		                                       	<i class="fa fa-qrcode"></i>
+		                                   	</span>
+		                                   	<input type="text" class="form-control" ng-model="m22" name="n22" required>
+		                            	</div>
+		                            	<span class="required" ng-show="m22.length!=7"> (Vui lòng nhập đủ 7 ký tự) </span>
+		                           	</div>			                                                    
+                           		</div>
+                           		<div class="col-md-6">
+		                           	<div class="form-group">
+		                               	<label>Serial kết thúc: (vd 0000002)</label>
+		                               	<div class="input-group">
+		                                   	<span class="input-group-addon">
+		                                       	<i class="fa fa-qrcode"></i>
+		                                   	</span>
+		                                   	<input type="text" class="form-control" ng-model="m23" name="n23" required>
+		                            	</div>
+		                            	<span class="required" ng-show="m23.length!=7"> (Vui lòng nhập đủ 7 ký tự) </span>
+		                           	</div>			                                                    
+                           		</div>
+                           	</div>	
+                           	
+                           	<div class="form-group" ng-show="m21.bat_name">
+                               	<label>Mô tả hợp đồng:</label>
+                               	<div class="input-group">
+                                   	<span class="input-group-addon">
+                                       	<i class="fa fa-qrcode"></i>
+                                   	</span>
+                                   	<textarea type="text" class="form-control" ng-model="m24" name="n26" required></textarea>
+                            	</div>
+                           	</div>  
+                           	<button type="submit" class="btn green-jungle btn-block" ng-show="fm2.$valid" ng-init="l111=false"><i class="fa fa-spinner fa-spin" ng-show="l20"></i> Bán</button>                                                  
+	                    </form>
+	                </div>
+	            </div>
+			</div>
+		</div>
+		<div class="row" ng-show="bl3">
+			<div class="col-md-12">
+				<div ng-bind-html="bindHtmlRender(bindHtmlData)"></div>
+			</div>
+		</div>
+    </div>
+</div>
+<div class="modal fade" id="md1" data-backdrop="static" data-keyboard="false">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header bg-blue-dark bg-font-blue-dark">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+                <h4 class="modal-title"> Điền Thông Tin Về File Mã Mới</h4>
+            </div>
+            <div class="modal-body font-blue-dark">
+                <div class="portlet light no-padding">
+                 <div class="portlet-body form">
+                     <form role="form" name="fm1" ng-submit="cl111(m11, m12, m13, m14, m15)">
+                            <div class="form-group">
+                                <label>
+                                	Lựa Chọn Loại Mã: 
+                                	<span class="required"> * </span>
+                                </label>
+                                <div class="input-group">
+                                    <span class="input-group-addon">
+                                        <i class="fa fa-list-ul font-blue-dark"></i>
+                                    </span>
+                                    <div class="input-icon right">
+                                    	<i class="fa fa-check font-green-jungle" ng-hide="fm1.n11.$error.required"></i> 
+                                        <i class="fa fa-warning font-red" ng-show="fm1.n11.$error.required"></i> 
+                                     <select class="form-control" ng-options="i.n for i in o1" name="n11" ng-model="m11" required></select>
+                                    </div>
+                                   </div>
+                            </div>
+                            <div class="form-group">
+                                <label>Nhập Số Lượng Mã: <span class="required"> * </span></label>
+                                <div class="input-group">
+                                    <span class="input-group-addon">
+                                        <i class="fa fa-sort-numeric-asc font-blue-dark"></i>
+                                    </span>
+                                    <div class="input-icon right">
+                                        <i class="fa fa-check font-green-jungle" ng-hide="fm1.n12.$error.required"></i> 
+                                        <i class="fa fa-warning font-red" ng-show="fm1.n12.$error.required"></i> 
+                                    	<input type="number" class="form-control" ng-model="m12" ng-init="m12=1" name="n12" min="1" max="100000" required> 
+                                       </div>
+                                   </div>
+                            </div>
+                            <div class="form-group">
+                                <label>Mô Tả Chi Tiết: <span class="required"> * </span></label>
+                                <div class="input-group">
+                                    <span class="input-group-addon">
+                                        <i class="fa fa-text font-blue-dark"></i>
+                                    </span>
+                                    <div class="input-icon right">
+                                        <i class="fa fa-check font-green-jungle" ng-hide="fm1.n13.$valid"></i> 
+                                        <i class="fa fa-warning font-red" ng-show="fm1.n13.$valid"></i> 
+                                    	<textarea type="text" class="form-control" ng-model="m13" name="n13" required></textarea>
+                                       </div>
+                                   </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="checkbox-list">
+                                    <label>
+                                        <input type="checkbox" ng-model="m14" ng-init="m14=false"> Tạo mã kèm serial </label>
+                                    <label>
+                                </div>
+                            </div>
+                            <div class="form-group" ng-show="m14">
+                                <label>Nhập Số cột:</label>
+                                <div class="input-group">
+                                    <span class="input-group-addon">
+                                        <i class="fa fa-sort-numeric-asc"></i>
+                                    </span>
+                                    <input type="number" min="1" max="20" class="form-control" ng-model="m15" ng-init="m14=0"> 
+                                   </div>
+                            </div>
+                 </div>
+             </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" data-dismiss="modal" class="btn dark btn-outline">Hủy</button>
+                <button type="submit" class="btn green" ng-click="">Tạo File Mã</button>
+            </div>
+                     </form>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="md11" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+            <div class="modal-header bg-blue-dark bg-font-blue-dark">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+                <h4 class="modal-title"> Xác Nhận Xóa File Mã</h4>
+            </div>
+            <div class="modal-body font-blue-dark">
+                <button type="button" data-dismiss="modal" class="btn dark">Hủy</button>
+                <button type="button" class="btn red pull-right" ng-click="cl211(s1.cod_file)">Xóa File Mã</button>
+            </div>
+        </div>
+    </div>
+</div>	                            
+<div class="modal fade" id="md12" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+            <div class="modal-header bg-blue-dark bg-font-blue-dark">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+                <h4 class="modal-title"> Xác Nhận Kích Hoạt File Mã</h4>
+            </div>
+            <div class="modal-body font-blue-dark">
+                <button type="button" data-dismiss="modal" class="btn dark">Hủy</button>
+                <button type="button" class="btn red pull-right" ng-click="cl215(m214.bat_id, m215, m217, m218)"><i class="fa fa-spinner fa-spin" ng-if="l1"></i>Kích Hoạt</button>
+            </div>
+        </div>
+    </div>
+</div>
